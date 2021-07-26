@@ -24,8 +24,12 @@ async function login(req, res) {
       req.body.password,
       user.password
     );
-    const token = createJWT(user);
-    res.json(token);
+    if (passwordMatch) {
+      const token = createJWT(user);
+      res.json(token);
+    } else {
+      throw new Error();
+    }
   } catch {
     res.status(400).json("Bad Credentials");
   }
