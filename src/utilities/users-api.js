@@ -42,12 +42,6 @@ async function sendRequest(url, method = "GET", payload = null) {
 export async function getSequence(seqId) {
   try {
     const { data } = await axios.get(`http://oeis.org/A${seqId}/b${seqId}.txt`);
-    const dom = new JSDOM(data, {
-      runScripts: "outside-only",
-      resources: "usable",
-    });
-    const { document } = dom.window;
-    const list = document.querySelector("pre");
 
     return data.replace(/\n/gm, ` `).replace(/\s+/gm, ` `).split(" ");
   } catch {

@@ -3,7 +3,6 @@ import { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from '../../utilities/users-service'
 import AuthPage from "../AuthPage/AuthPage";
-import LoginForm from "../LoginForm/LoginForm"
 import NewPuppyPage from "../NewPuppyPage/NewPuppyPage";
 import PuppyHistoryPage from "../PuppyHistoryPage/PuppyHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
@@ -36,9 +35,7 @@ export default function App() {
         : (
           <>
           <button onClick = {()=> setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
-          
-          {auth && <AuthPage setUser = {setUser}/>}
-          {auth || <LoginForm setUser = {setUser}/>}
+          <AuthPage setUser = {setUser} auth = {auth}/>
           </>
         )}
     </main>
