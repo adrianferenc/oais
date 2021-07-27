@@ -6,6 +6,8 @@ import AuthPage from "../AuthPage/AuthPage";
 import NewPuppyPage from "../NewPuppyPage/NewPuppyPage";
 import PuppyHistoryPage from "../PuppyHistoryPage/PuppyHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
+import SearchPage from "../SearchPage/SearchPage";
+
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -17,10 +19,14 @@ export default function App() {
     <main className="App">
       {user ?
         <>
-          <NavBar user={user} setUser = {setUser}/>
+          <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route path="/puppies/new">
               <NewPuppyPage />
+            </Route>
+
+            <Route path="/search">
+              <SearchPage />
             </Route>
 
             <Route path="/puppies">
@@ -34,8 +40,8 @@ export default function App() {
         </>
         : (
           <>
-          <button onClick = {()=> setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
-          <AuthPage setUser = {setUser} auth = {auth}/>
+            <button onClick={() => setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
+            <AuthPage setUser={setUser} auth={auth} />
           </>
         )}
     </main>

@@ -1,7 +1,5 @@
 import { getToken } from "./users-service";
-const jsdom = require("jsdom");
-const { JSDOM } = jsdom;
-const axios = require("axios");
+import { sequenceScraper } from "./scrapers";
 
 const BASE_URL = "/api/users";
 
@@ -39,24 +37,6 @@ async function sendRequest(url, method = "GET", payload = null) {
   throw new Error("Bad Request");
 }
 
-export async function getSequence(seqId) {
-  try {
-    const { data } = await axios.get(`http://oeis.org/A${seqId}/b${seqId}.txt`);
-
-    return data.replace(/\n/gm, ` `).replace(/\s+/gm, ` `).split(" ");
-  } catch {
-    try {
-      const { data } = await axios.get(`http://oeis.org/A${seqId}/list`);
-      const dom = new JSDOM(data, {
-        runScripts: "outside-only",
-        resources: "usable",
-      });
-      const { document } = dom.window;
-      const list = document.querySelector("pre");
-
-      return JSON.parse(list.textContent.replace(/\s+/g, "")).map((x) => +x);
-    } catch (error) {
-      console.log(error);
-    }
-  }
+export function getSequence(seqId) {
+  return sequenceScraper(seqId);
 }

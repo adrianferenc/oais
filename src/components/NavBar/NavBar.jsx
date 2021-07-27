@@ -14,6 +14,8 @@ export default function NavBar({user, setUser}) {
             &nbsp; | &nbsp;
             <Link to="/puppies/new">New Puppy</Link>
             &nbsp; | &nbsp;
+            <Link to="/search">Search</Link>
+            &nbsp; | &nbsp;
             Welcome, {user.name}
             &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
         </nav>
