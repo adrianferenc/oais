@@ -1,5 +1,5 @@
 import { getToken } from "./users-service";
-import { sequenceScraper } from "./scrapers";
+//import { sequenceScraper } from "./scrapers";
 
 const BASE_URL = "/api/users";
 
@@ -37,6 +37,6 @@ async function sendRequest(url, method = "GET", payload = null) {
   throw new Error("Bad Request");
 }
 
-export function getSequence(seqId) {
-  return sequenceScraper(seqId);
-}
+// export function getSequence(seqId) {
+//   return sequenceScraper(seqId);
+// }

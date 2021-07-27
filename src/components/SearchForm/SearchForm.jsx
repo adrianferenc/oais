@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import {getSequence} from '../../utilities/users-api'
+// import {getSequence} from '../../utilities/users-api'
+import { sequenceScraper } from '../../utilities/scrapers';
 
-export default function SearchPage({setResults}) {
+export default function SearchPage({ setResults }) {
     const [search, setSearch] = useState('');
     const [error, setError] = useState('');
 
@@ -12,8 +13,8 @@ export default function SearchPage({setResults}) {
     async function handleSubmit(evt) {
         evt.preventDefault();
         try {
-            const searchResults = await getSequence(search);
-            setResults(searchResults);
+            const results = await sequenceScraper(search);
+            console.log(results)
         } catch {
             setError('Search Failed');
         }

@@ -1,22 +1,17 @@
+const axios = require("axios");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
-const axios = require("axios");
 
 export async function sequenceScraper(seqId) {
   try {
-    const { data } = await axios.get(`http://oeis.org/A${seqId}/b${seqId}.txt`, {
-      headers: {'crossorigin':'true',
-        'Access-Control-Allow-Origin': 'http://localhost:3000',
-        'Access-Control-Allow-Credentials': 'true'
-      }
-    });
-    return data.replace(/\n/gm, ` `).replace(/\s+/gm, ` `).split(" ");;
+    const { data } = await axios.get(`http://oeis.org/A${seqId}/b${seqId}.txt`);
+    let dataArray = data.replace(/\n/gm, ` `).replace(/\s+/gm, ` `).split(" ");
+    dataArray = dataArray.filter((elt,idx)=> idx%2===1);
+    return dataArray
   } catch {
     return sequenceScraperShort(seqId);
   }
 }
-
-
 
 export async function sequenceScraperShort(seqId) {
   try {
@@ -33,22 +28,3 @@ export async function sequenceScraperShort(seqId) {
     console.log(error);
   }
 }
-
-// export async function searchScraper(query) {
-//   try {
-//     let request = new XMLHttpRequest();
-//     request.open("GET", "http://oeis.org/search?q=1,1,2,3,5,8,13&language=english&go=Search", true);
-//     request.onload = () => {
-//       console.log(request.responseText);
-//     };
-//     request.send();
-
-//     // const url = new URL("http://oeis.org/search");
-//     // const params = { q: query, language: "english", go: "Search" };
-//     // url.search = new URLSearchParams(params);
-//     // url.href = url.href.replaceAll('%2C',',')
-//     // console.log(url.href);
-//   } catch (error) {
-//     console.log(error);
-//   }
-// }
