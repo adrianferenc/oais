@@ -1,5 +1,5 @@
 import { getToken } from "./users-service";
-//import { sequenceScraper } from "./scrapers";
+import { sequenceScraper } from "./scrapers";
 
 const BASE_URL = "/api/users";
 

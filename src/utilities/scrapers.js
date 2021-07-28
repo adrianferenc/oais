@@ -2,12 +2,12 @@ const axios = require("axios");
 const jsdom = require("jsdom");
 const { JSDOM } = jsdom;
 
-export async function sequenceScraper(seqId) {
+export default async function sequenceScraper(seqId) {
   try {
     const { data } = await axios.get(`http://oeis.org/A${seqId}/b${seqId}.txt`);
     let dataArray = data.replace(/\n/gm, ` `).replace(/\s+/gm, ` `).split(" ");
     dataArray = dataArray.filter((elt,idx)=> idx%2===1);
-    return dataArray
+    return dataArray.map(x=> +x);
   } catch {
     return sequenceScraperShort(seqId);
   }
