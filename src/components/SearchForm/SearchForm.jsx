@@ -1,13 +1,9 @@
 import { useState } from 'react';
 import { searchResult } from '../../utilities/sequences-api';
-import './SearchForm.css';
 
-export default function SearchForm(props) {
+export default function SearchForm({sequence, setSequence, viewStart, setViewStart}) {
   const [query, setQuery] = useState('');
-  const [sequence, setSequence] = useState([]);
-  const [viewStart, setViewStart] = useState(0);
-
-
+  
   function handleChange(evt) {
     setQuery(evt.target.value);
   }
@@ -25,7 +21,7 @@ export default function SearchForm(props) {
       setViewStart(0);
     } else {
       const change = pm === "+" ? 10 : -10;
-      setViewStart(viewStart + change > 0 ? viewStart + change : 0);
+      setViewStart(viewStart + change > 0 ? viewStart + change:  0);
     }
   }
 
@@ -47,14 +43,7 @@ export default function SearchForm(props) {
           <input type="text" name="search" value={query} placeholder="Try 45" onChange={handleChange} required />
           <button type="submit">SEARCH</button>
         </form>
-        {sequence.slice(viewStart, viewStart + 20).map((x, idx) => {
-          return (
-            <div className="test" value={x} key={idx}>
-              {x}
-            </div>
-          )
-        })}
-        {/* <p>{sequence.slice(viewStart, viewStart + 20).join(', ')}</p> */}
+        
       </div>
     </>
   );

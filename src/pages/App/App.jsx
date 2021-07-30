@@ -3,8 +3,8 @@ import { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from '../../utilities/users-service'
 import AuthPage from "../AuthPage/AuthPage";
-import NewPuppyPage from "../NewPuppyPage/NewPuppyPage";
-import PuppyHistoryPage from "../PuppyHistoryPage/PuppyHistoryPage";
+import IndexPage from "../IndexPage/IndexPage"
+import Profile from "../Profile/Profile";
 import NavBar from "../../components/NavBar/NavBar";
 
 export default function App() {
@@ -19,16 +19,16 @@ export default function App() {
         <>
           <NavBar user={user} setUser={setUser} />
           <Switch>
-            <Route path="/puppies/new">
-              <NewPuppyPage />
+            <Route path="/">
+              <IndexPage />
             </Route>
 
-            <Route path="/puppies">
-              <PuppyHistoryPage />
+            <Route path="/profile">
+              <Profile />
             </Route>
 
             <Route>
-              <Redirect to="/puppies" />
+              <Redirect to="/" />
             </Route>
           </Switch>
         </>

@@ -3,7 +3,7 @@ import * as userService from '../../utilities/users-service';
 
 
 
-export default function NavBar({user, setUser}) {
+export default function NavBar({ user, setUser }) {
 
     function handleLogOut() {
         userService.logOut();
@@ -12,9 +12,9 @@ export default function NavBar({user, setUser}) {
 
     return (
         <nav>
-            <Link to="/puppies">Puppy History</Link>
+            <Link to="/">OAIS</Link>
             &nbsp; | &nbsp;
-            <Link to="/puppies/new">New Puppy</Link>
+            <Link to="/profile">Profile</Link>
             &nbsp; | &nbsp;
             Welcome, {user.name}
             &nbsp;&nbsp;<Link to="" onClick={handleLogOut}>Log Out</Link>
