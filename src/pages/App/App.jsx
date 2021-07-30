@@ -6,8 +6,6 @@ import AuthPage from "../AuthPage/AuthPage";
 import NewPuppyPage from "../NewPuppyPage/NewPuppyPage";
 import PuppyHistoryPage from "../PuppyHistoryPage/PuppyHistoryPage";
 import NavBar from "../../components/NavBar/NavBar";
-import SearchPage from "../SearchPage/SearchPage";
-
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -23,10 +21,6 @@ export default function App() {
           <Switch>
             <Route path="/puppies/new">
               <NewPuppyPage />
-            </Route>
-
-            <Route path="/search">
-              <SearchPage />
             </Route>
 
             <Route path="/puppies">

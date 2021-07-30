@@ -18,6 +18,7 @@ app.use(require('./config/checkToken'));
 
 
 app.use('/api/users', require('./routes/api/users'));
+app.use('/api/sequences', require('./routes/api/sequences'));
 
 app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "build", "index.html"));
@@ -29,3 +30,5 @@ const port = process.env.PORT || 3001;
 app.listen(port, function () {
   console.log(`Express app listening on port ${port}`);
 });
+
+app.timeout = 5 * 60 * 1000;

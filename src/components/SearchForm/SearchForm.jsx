@@ -1,35 +1,61 @@
 import { useState } from 'react';
-// import {getSequence} from '../../utilities/users-api'
-import { sequenceScraper } from '../../utilities/scrapers';
+import { searchResult } from '../../utilities/sequences-api';
+import './SearchForm.css';
 
-export default function SearchPage({ setResults }) {
-    const [search, setSearch] = useState('');
-    const [error, setError] = useState('');
+export default function SearchForm(props) {
+  const [query, setQuery] = useState('');
+  const [sequence, setSequence] = useState([]);
+  const [viewStart, setViewStart] = useState(0);
 
-    function handleChange(evt) {
-        setSearch(evt.target.value);
+
+  function handleChange(evt) {
+    setQuery(evt.target.value);
+  }
+
+
+  async function handleSubmit(evt) {
+    evt.preventDefault();
+    const search = await searchResult(query.padStart(6, "0"));
+    setSequence(search);
+  }
+
+  async function handleViewSubmit(evt, pm) {
+    evt.preventDefault();
+    if (pm === "reset") {
+      setViewStart(0);
+    } else {
+      const change = pm === "+" ? 10 : -10;
+      setViewStart(viewStart + change > 0 ? viewStart + change : 0);
     }
+  }
 
-    async function handleSubmit(evt) {
-        evt.preventDefault();
-        try {
-            const results = await sequenceScraper(search);
-            console.log(results)
-        } catch {
-            setError('Search Failed');
-        }
-    }
-
-
-    return (
-        <div>
-            <div className="form-container" onSubmit={handleSubmit}>
-                <form autoComplete="off" >
-                    <input type="text" name="search" placeholder="Enter the ID for a sequence" value={search} onChange={handleChange} required />
-                    <button type="submit">Search</button>
-                </form>
+  return (
+    <>
+      <div>
+        <form onSubmit={(evt) => handleViewSubmit(evt, "+")} >
+          <button type="submit" >+</button>
+        </form>
+        <form onSubmit={(evt) => handleViewSubmit(evt, "-")}>
+          <button type="submit">-</button>
+        </form>
+        <form onSubmit={(evt) => handleViewSubmit(evt, "reset")}>
+          <button type="submit">Reset</button>
+        </form>
+      </div>
+      <div className="form-container">
+        <form autoComplete="off" onSubmit={handleSubmit}>
+          <input type="text" name="search" value={query} placeholder="Try 45" onChange={handleChange} required />
+          <button type="submit">SEARCH</button>
+        </form>
+        {sequence.slice(viewStart, viewStart + 20).map((x, idx) => {
+          return (
+            <div className="test" value={x} key={idx}>
+              {x}
             </div>
-            <p className="error-message">&nbsp;{error}</p>
-        </div>
-    )
+          )
+        })}
+        {/* <p>{sequence.slice(viewStart, viewStart + 20).join(', ')}</p> */}
+      </div>
+    </>
+  );
 }

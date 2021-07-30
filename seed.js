@@ -5,8 +5,8 @@ require("dotenv").config();
 require("./config/database");
 
 const Sequence = require("./models/sequence");
-const start = 8101;
-const amountToUpdate = 1000;
+const start = 1;
+const amountToUpdate = 1900;
 const lastSequenceId = 346650;
 const errors = [];
 const time = "";
@@ -51,10 +51,10 @@ async function sequenceScraperShort(seqId) {
 
 (async function () {
   console.time(time);
-//   await Sequence.deleteMany({});
-  for (let i = start; i < amountToUpdate+start; i++) {
+   await Sequence.deleteMany({});
+  for (let i = start; i < lastSequenceId; i++) {
     let sequenceId = "A" + i.toString().padStart(6, "0");
-    let sequenceArray = await sequenceScraperLong(i.toString().padStart(6, "0"));
+    let sequenceArray = await sequenceScraperMedium(i.toString().padStart(6, "0"));
     console.log(`${sequenceId} has length ${sequenceArray.length}`);
     sequence = await Sequence.create({ sequenceId, sequenceArray });
   }
