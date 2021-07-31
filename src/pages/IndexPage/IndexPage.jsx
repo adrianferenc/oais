@@ -10,6 +10,9 @@ export default function IndexPage() {
   const [viewStart, setViewStart] = useState(0);
   const [width, setWidth] = useState(100);
 
+
+  const test = new Array(101).fill(null);
+
   useEffect(() => {
     async function resetViewStart() {
       setViewStart(0);
