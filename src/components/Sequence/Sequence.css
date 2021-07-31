@@ -1,0 +1,32 @@
+.OAIS {
+  display: flex;
+  justify-content: center;
+  width:80%;
+}
+
+#sequence {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1vw;
+  /* width: fit-content; */
+}
+
+.chevron {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* padding: 0 3vw; */
+  height: 5vh;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+
+.hexagon {
+  background-color: green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 3vw;
+  height: 5vh;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
