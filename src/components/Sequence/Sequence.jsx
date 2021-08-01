@@ -1,9 +1,12 @@
 import rainbow from '../../utilities/rainbow'
+import MovementButtons from '../../components/MovementButtons/MovementButtons'
 import './Sequence.css';
 
-export default function Sequence({ viewStart, sequence, width }) {
+export default function Sequence({ viewStart, setViewStart, sequence, width }) {
 
   return (
+    <>
+    <MovementButtons viewStart={viewStart} setViewStart={setViewStart} />
     <div className="OAIS">
       <div id='sequence'>
         {sequence.slice(viewStart, viewStart + 10).map((x, idx) => {
@@ -16,5 +19,6 @@ export default function Sequence({ viewStart, sequence, width }) {
         })}
       </div>
     </div>
+    </>
   );
 }
