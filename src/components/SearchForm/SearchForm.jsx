@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { searchResult } from '../../utilities/sequences-api';
 
-export default function SearchForm({ setSequence }) {
+export default function SearchForm({ sequence, setSequence }) {
   const [query, setQuery] = useState('');
 
   function handleChange(evt) {
@@ -12,7 +12,7 @@ export default function SearchForm({ setSequence }) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     const search = await searchResult(query.padStart(6, "0"));
-    setSequence({ sequenceId: query, sequence: search });
+    setSequence({sequenceId: query, sequence: search });
   }
 
   return (

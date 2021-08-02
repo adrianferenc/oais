@@ -1,31 +1,21 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import SearchForm from '../../components/SearchForm/SearchForm'
 import ZoomButtons from '../../components/ZoomButtons/ZoomButtons';
 import Sequence from '../../components/Sequence/Sequence'
-import './IndexPage.css';
+import './SequencePage.css';
 import AddFavoriteButton from '../../components/AddFavoriteButton/AddFavoriteButton';
 
-export default function IndexPage({user, setUser}) {
-  const [sequence, setSequence] = useState({
-    sequenceId: '',
-    sequence: []
-  });
+export default function SequencePage({sequence, setSequence, user, setUser}) {
+  
   const [viewStart, setViewStart] = useState(0);
   const [width, setWidth] = useState(100);
-
-  useEffect(() => {
-    async function resetViewStart() {
-      setViewStart(0);
-    }
-    resetViewStart();
-  }, [sequence]);
 
   return (
     <main className="Index">
       <h1>Online Atlas of Integer Sequences</h1>
       <ZoomButtons width={width} setWidth={setWidth} />
-      <SearchForm setSequence={setSequence} />
-      <Sequence viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} />
+      <SearchForm sequence = {sequence} setSequence={setSequence} />
+      <Sequence viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} setSequence={setSequence} width={width} />
       <AddFavoriteButton sequence={sequence} user={user} setUser={setUser}/>
     </main>
   );

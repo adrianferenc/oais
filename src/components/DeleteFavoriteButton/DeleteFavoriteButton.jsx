@@ -1,10 +1,10 @@
 import { changeFavorite } from '../../utilities/users-service';
 
-export default function DeleteFavoriteButton({ sequence, setUser }) {
+export default function DeleteFavoriteButton({ sequenceId, setUser }) {
 
   async function handleDeleteFavorite(evt) {
     evt.preventDefault();
-    const updatedUser = await changeFavorite(sequence, "delete");
+    const updatedUser = await changeFavorite(sequenceId, "delete");
     setUser(updatedUser);
   }
 

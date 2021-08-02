@@ -1,14 +1,19 @@
 .OAIS {
   display: flex;
-  justify-content: center;
-  width:80%;
 }
 
 #sequence {
   display: flex;
   justify-content: space-between;
   margin: 0 1vw;
+  position: relative;
   /* width: fit-content; */
+}
+
+.integer {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
 }
 
 .chevron {
@@ -26,4 +31,10 @@
   align-items: center;
   height: 5vh;
   clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+#index-view {
+  display: flex;
+  font-size: 8pt;
+  justify-content: center;
 }

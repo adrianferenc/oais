@@ -14,6 +14,6 @@ export function checkToken() {
   return sendRequest(`${BASE_URL}/check-token`);
 }
 
-export async function changeFavorite(user, sequenceId, method) {
-  return sendRequest(`${BASE_URL}/${user._id}`, "PUT", {sequenceId, method});
+export async function changeFavorite(user, sequenceId, method, options) {
+  return sendRequest(`${BASE_URL}/${user._id}`, "PUT", {sequenceId, method, options});
 }

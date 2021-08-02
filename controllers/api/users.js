@@ -47,13 +47,16 @@ function createJWT(user) {
 
 async function update(req, res) {
   try {
+    console.log(req.body);
     const user = await User.findById(req.params.id);
-    const idx = user.favorites.indexOf(req.body.sequenceId);
+    const idx = user.favorites.findIndex(sequence => sequence.sequenceId===req.body.sequenceId);
     if (req.body.method==="add"){
+      const newFavorite = {sequenceId: req.body.sequenceId};
+        newFavorite.sequenceName = req.body.options.sequenceName ? req.body.options.sequenceName : req.body.sequenceId;
       if (idx ===-1){
-        user.favorites.push(req.body.sequenceId)
+        user.favorites.push(newFavorite)
       } else {
-        user.favorites.splice(idx,1,req.body.sequenceId);
+        user.favorites.splice(idx,1,newFavorite);
       }
     } else {
       user.favorites.splice(idx,1);

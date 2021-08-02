@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 import { getUser } from '../../utilities/users-service'
 import AuthPage from "../AuthPage/AuthPage";
-import IndexPage from "../IndexPage/IndexPage"
+import SequencePage from "../SequencePage/SequencePage"
 import Profile from "../Profile/Profile";
 import NavBar from "../../components/NavBar/NavBar";
 
@@ -12,6 +12,14 @@ export default function App() {
 
   const [auth, setAuth] = useState(true);
 
+  const [sequence, setSequence] = useState({
+    sequenceId: '',
+    sequence: [],
+    options: {
+      viewStart: 0,
+      width: 100
+    },
+  });
 
   return (
     <main className="App">
@@ -20,11 +28,11 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route exact path="/">
-              <IndexPage user={user} setUser={setUser} />
+              <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} />
             </Route>
 
             <Route exact path="/profile">
-              <Profile user={user}  setUser={setUser} />
+              <Profile user={user} setUser={setUser} setSequence={setSequence} />
             </Route>
 
             <Route>
@@ -34,8 +42,9 @@ export default function App() {
         </>
         : (
           <>
-            <button onClick={() => setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
+            <h1>{auth ? 'Sign Up' : 'Login'}</h1>
             <AuthPage setUser={setUser} auth={auth} />
+            <button onClick={() => setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
           </>
         )}
     </main>

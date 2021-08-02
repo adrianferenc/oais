@@ -44,9 +44,9 @@ export function checkToken() {
   return usersAPI.checkToken().then((dateStr) => new Date(dateStr));
 }
 
-export async function changeFavorite(sequenceId, method) {
+export async function changeFavorite(sequenceId, method, options=null) {
   const user = getUser();
-  const token = await usersAPI.changeFavorite(user, sequenceId, method);
+  const token = await usersAPI.changeFavorite(user, sequenceId, method, options);
   localStorage.setItem("token", token);
   return getUser();
 }

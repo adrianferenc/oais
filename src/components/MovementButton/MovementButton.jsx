@@ -3,8 +3,8 @@ export default function MovementButton({ viewStart, setViewStart, direction }) {
 
   async function handleViewSubmit(evt) {
     evt.preventDefault();
-    const change = direction === "right" ? 10 : -10;
-    setViewStart(viewStart + change > 0 ? viewStart + change : 0);
+    const change = direction === "right" ? 1 : -1;
+    setViewStart(viewStart + change > 0 ? viewStart + change : 0)
   }
 
   return (
