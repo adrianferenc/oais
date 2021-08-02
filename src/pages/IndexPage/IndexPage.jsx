@@ -5,7 +5,10 @@ import Sequence from '../../components/Sequence/Sequence'
 import './IndexPage.css';
 
 export default function IndexPage() {
-  const [sequence, setSequence] = useState([]);
+  const [sequence, setSequence] = useState({
+    sequenceId: '',
+    sequence: []
+  });
   const [viewStart, setViewStart] = useState(0);
   const [width, setWidth] = useState(100);
 

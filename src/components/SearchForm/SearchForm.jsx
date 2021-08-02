@@ -12,7 +12,7 @@ export default function SearchForm({setSequence}) {
   async function handleSubmit(evt) {
     evt.preventDefault();
     const search = await searchResult(query.padStart(6, "0"));
-    setSequence(search);
+    setSequence({sequenceId: query, sequence: search});
   }
 
   return (
