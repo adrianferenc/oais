@@ -1,7 +1,7 @@
-export default function ResetPositionButton({ setViewStart }) {
+export default function ResetPositionButton({ viewStart, setViewStart }) {
 
 
-  async function handleViewSubmit(evt, pm) {
+  async function handleViewSubmit(evt) {
     evt.preventDefault();
     setViewStart(0);
   }
@@ -9,7 +9,7 @@ export default function ResetPositionButton({ setViewStart }) {
   return (
     <>
       <div>
-        <form onSubmit={(evt) => handleViewSubmit(evt, "reset")}>
+        <form onSubmit={handleViewSubmit}>
           <button type="submit">Reset</button>
         </form>
       </div>

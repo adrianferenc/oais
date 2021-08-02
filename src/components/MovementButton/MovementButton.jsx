@@ -8,10 +8,10 @@ export default function MovementButton({ viewStart, setViewStart, direction }) {
   }
 
   return (
-    <div className = "movement-button">
-    <form onSubmit={(evt) => handleViewSubmit(evt)} >
-      <button type="submit" >{label}</button>
-    </form>
+    <div className="movement-button">
+      <form onSubmit={handleViewSubmit} >
+        <button type="submit" >{label}</button>
+      </form>
     </div>
   );
 }

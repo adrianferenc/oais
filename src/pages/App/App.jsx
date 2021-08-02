@@ -20,11 +20,11 @@ export default function App() {
           <NavBar user={user} setUser={setUser} />
           <Switch>
             <Route exact path="/">
-              <IndexPage />
+              <IndexPage user={user} setUser={setUser} />
             </Route>
 
             <Route exact path="/profile">
-              <Profile />
+              <Profile user={user}  setUser={setUser} />
             </Route>
 
             <Route>

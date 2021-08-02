@@ -2,8 +2,7 @@ const User = require("../../models/user");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-
-module.exports = { create, login, checkToken };
+module.exports = { create, login, checkToken, update };
 
 async function create(req, res) {
   try {
@@ -43,4 +42,25 @@ function checkToken(req, res) {
 
 function createJWT(user) {
   return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
+}
+
+
+async function update(req, res) {
+  try {
+    const user = await User.findById(req.params.id);
+    const idx = user.favorites.indexOf(req.body.sequenceId);
+    if (req.body.method==="add"){
+      if (idx ===-1){
+        user.favorites.push(req.body.sequenceId)
+      } else {
+        user.favorites.splice(idx,1,req.body.sequenceId);
+      }
+    } else {
+      user.favorites.splice(idx,1);
+    }
+    await user.save();
+    res.json(user);
+  } catch {
+    res.status(400).json("Favorite Not Saved");
+  }
 }

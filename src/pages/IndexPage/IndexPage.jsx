@@ -3,8 +3,9 @@ import SearchForm from '../../components/SearchForm/SearchForm'
 import ZoomButtons from '../../components/ZoomButtons/ZoomButtons';
 import Sequence from '../../components/Sequence/Sequence'
 import './IndexPage.css';
+import AddFavoriteButton from '../../components/AddFavoriteButton/AddFavoriteButton';
 
-export default function IndexPage() {
+export default function IndexPage({user, setUser}) {
   const [sequence, setSequence] = useState({
     sequenceId: '',
     sequence: []
@@ -25,6 +26,7 @@ export default function IndexPage() {
       <ZoomButtons width={width} setWidth={setWidth} />
       <SearchForm setSequence={setSequence} />
       <Sequence viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} />
+      <AddFavoriteButton sequence={sequence} user={user} setUser={setUser}/>
     </main>
   );
 }
