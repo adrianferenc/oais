@@ -1,10 +1,13 @@
 import { useState } from 'react';
-import rainbow from '../../utilities/rainbow'
+import colorizer from '../../utilities/color'
 import MovementButton from '../../components/MovementButton/MovementButton'
+import ResetPositionButton from '../../components/ResetPositionButton/ResetPositionButton'
+import SetModButton from '../SetModButton/SetModButton';
 import './Sequence.css';
 
 export default function Sequence({ viewStart, setViewStart, sequence, width }) {
   const [showIndex, setShowIndex] = useState(false);
+  const [modulus, setModulus] = useState(null);
 
   async function handleShowIndex() {
     setShowIndex(!showIndex);
@@ -21,13 +24,13 @@ export default function Sequence({ viewStart, setViewStart, sequence, width }) {
         </div>
         <div id='sequence'>
           {sequence.sequence.slice(viewStart, viewStart + 10).map((x, idx) => {
-            let color = rainbow(((viewStart + idx) % 100) / Math.min(100, sequence.sequence.length) + .001);
+            let color = colorizer(sequence.sequence, x, idx, viewStart, modulus);
             return (
               <div className="integer" style={{ width: `${width}px`, position: "absolute", left: `${idx * (width * .78) + 40}px` }} key={viewStart + idx}>
                 <div style={{ backgroundColor: color }} className="chevron" value={+x} key={viewStart + idx}>
                   <p className="number">{x}</p>
                 </div>
-                <div id="index-view">{showIndex && 1 + viewStart + idx}</div>
+                <div id="index-view">{showIndex && viewStart + idx}</div>
               </div>
             )
           })}
@@ -35,7 +38,9 @@ export default function Sequence({ viewStart, setViewStart, sequence, width }) {
         <div>
           <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'right'} />
         </div>
+        <ResetPositionButton viewStart={viewStart} setViewStart={setViewStart} />
       </div>
+      <SetModButton sequence={sequence} modulus={modulus} setModulus={setModulus} />
     </>
   );
 }

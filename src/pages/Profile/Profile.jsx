@@ -2,7 +2,7 @@ import { Link, useHistory } from "react-router-dom";
 import { checkToken } from '../../utilities/users-service';
 import { searchResult } from '../../utilities/sequences-api';
 import DeleteFavoriteButton from '../../components/DeleteFavoriteButton/DeleteFavoriteButton'
-import RenameFavoriteButton from "../../components/RenameFavoriteButton copy/RenameFavoriteButton";
+import RenameFavoriteButton from "../../components/RenameFavoriteButton/RenameFavoriteButton";
 
 export default function Profile({ user, setUser, setSequence }) {
   const history = useHistory();
