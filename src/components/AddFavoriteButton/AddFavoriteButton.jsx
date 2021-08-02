@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
-import { changeFavorite } from '../../utilities/users-api';
+import { changeFavorite } from '../../utilities/users-service';
 
 export default function AddFavoriteButton({ sequence, user, setUser }) {
   const [userUpdated,setUserUpdated] = useState(false);
 
   async function handleAddFavorite(evt) {
     evt.preventDefault();
-    const updatedUser = await changeFavorite(user, sequence.sequenceId,"add");
+    const updatedUser = await changeFavorite(sequence.sequenceId,"add");
     setUser(updatedUser);
   }
 

@@ -43,3 +43,10 @@ export async function login(credentials) {
 export function checkToken() {
   return usersAPI.checkToken().then((dateStr) => new Date(dateStr));
 }
+
+export async function changeFavorite(sequenceId, method) {
+  const user = getUser();
+  const token = await usersAPI.changeFavorite(user, sequenceId, method);
+  localStorage.setItem("token", token);
+  return getUser();
+}

@@ -16,7 +16,7 @@ export default function Profile({ user, setUser }) {
         <ul>
           {user.favorites.map((sequence, idx) => {
             return (
-              <li key={idx}>{sequence} <DeleteFavoriteButton sequence={sequence} user={user} setUser = {setUser}/> </li>
+              <li key={idx}>{sequence} <DeleteFavoriteButton sequence={sequence} user={user} setUser={setUser} /> </li>
             )
           })
           }

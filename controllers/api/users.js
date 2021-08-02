@@ -59,7 +59,8 @@ async function update(req, res) {
       user.favorites.splice(idx,1);
     }
     await user.save();
-    res.json(user);
+    const token = createJWT(user);
+    res.json(token);
   } catch {
     res.status(400).json("Favorite Not Saved");
   }
