@@ -1,0 +1,7 @@
+#sequence {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 1vw;
+  position: relative;
+  /* width: fit-content; */
+}

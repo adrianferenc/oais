@@ -51,7 +51,7 @@ async function update(req, res) {
     const idx = user.favorites.findIndex(sequence => sequence.sequenceId===req.body.sequenceId);
     if (req.body.method==="add"){
       const newFavorite = {sequenceId: req.body.sequenceId};
-        newFavorite.sequenceName = req.body.options.sequenceName ? req.body.options.sequenceName : req.body.sequenceId;
+        newFavorite.sequenceName = (req.body.options && req.body.options.sequenceName) ? req.body.options.sequenceName : req.body.sequenceId;
       if (idx ===-1){
         user.favorites.push(newFavorite)
       } else {
