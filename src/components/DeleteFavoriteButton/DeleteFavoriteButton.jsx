@@ -1,4 +1,5 @@
 import { changeFavorite } from '../../utilities/users-service';
+import './DeleteFavoriteButton.css'
 
 export default function DeleteFavoriteButton({ sequenceId, setUser }) {
 

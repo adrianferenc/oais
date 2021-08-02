@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { changeFavorite } from '../../utilities/users-service';
+import './RenameFavoriteButton.css'
 
 export default function RenameFavoriteButton({sequenceId, setUser }) {
   const [clicked,setClicked] = useState(false)
@@ -11,7 +12,6 @@ export default function RenameFavoriteButton({sequenceId, setUser }) {
 
   async function handleRename(evt) {
     evt.preventDefault();
-    console.log(newName);
     const updatedUser = await changeFavorite(sequenceId, "add", {sequenceName: newName});
     setClicked(false);
     setNewName('');

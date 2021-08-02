@@ -14,7 +14,7 @@ export default function Sequence({ viewStart, setViewStart, sequence, width }) {
     <>
       <h1>{!!sequence.sequenceId && `Sequence ${sequence.sequenceId}`}</h1>
 
-      <button onClick={handleShowIndex}>{showIndex ? `Hide` : `Show`} index</button>
+      <button disabled={sequence.sequenceId === ''} onClick={handleShowIndex}>{showIndex ? `Hide` : `Show`} index</button>
       <div className="OAIS">
         <div>
           <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'left'} />

@@ -47,7 +47,6 @@ function createJWT(user) {
 
 async function update(req, res) {
   try {
-    console.log(req.body);
     const user = await User.findById(req.params.id);
     const idx = user.favorites.findIndex(sequence => sequence.sequenceId===req.body.sequenceId);
     if (req.body.method==="add"){

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { changeFavorite } from '../../utilities/users-service';
+import './AddFavoriteButton.css'
 
 export default function AddFavoriteButton({ sequence, user, setUser }) {
   const [userUpdated,setUserUpdated] = useState(false);
