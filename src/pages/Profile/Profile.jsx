@@ -33,7 +33,7 @@ export default function Profile({ user, setUser, setSequence }) {
               <div key={idx}>
                 <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.sequenceName}</Link>
                 <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
-                <RenameFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
+                <RenameFavoriteButton sequence={sequence} setUser={setUser} />
               </div>
             )
           })

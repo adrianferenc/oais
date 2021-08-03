@@ -1,3 +1,12 @@
+.sequence-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.OAIS {
+  display: flex;
+}
+
 #sequence {
   display: flex;
   justify-content: space-between;

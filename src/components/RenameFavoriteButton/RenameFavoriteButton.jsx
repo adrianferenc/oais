@@ -2,29 +2,37 @@ import { useState } from 'react';
 import { changeFavorite } from '../../utilities/users-service';
 import './RenameFavoriteButton.css'
 
-export default function RenameFavoriteButton({sequenceId, setUser }) {
-  const [clicked,setClicked] = useState(false)
+export default function RenameFavoriteButton({ sequence, setUser }) {
+  const [clicked, setClicked] = useState(false)
   const [newName, setNewName] = useState('');
 
   function handleChange(evt) {
     setNewName(evt.target.value);
   }
 
+  function handeRenameButton(evt) {
+    setClicked(true);
+    setNewName(sequence.sequenceName);
+  }
+
   async function handleRename(evt) {
     evt.preventDefault();
-    const updatedUser = await changeFavorite(sequenceId, "add", {sequenceName: newName});
+    const updatedUser = await changeFavorite(sequence.sequenceId, "add", { sequenceName: newName });
     setClicked(false);
     setNewName('');
     setUser(updatedUser);
   }
 
+
+
   return (
     <>
-      {clicked ? 
+      {clicked ?
         <form onSubmit={handleRename}>
-          <input type="text" name='renameValue' value={newName} onChange={handleChange} required />
+          <input type="text" name='renameValue' placeholder={sequence.sequenceName} value={newName} onChange={handleChange} required />
           <button type="submit">Change name</button>
-        </form> : <button onClick={() => setClicked(true)}>Rename Sequence</button>
+          <button onClick={() => setClicked(false)}>Cancel</button>
+        </form> : <button onClick={handeRenameButton}>Rename Sequence</button>
       }</>
   );
 }

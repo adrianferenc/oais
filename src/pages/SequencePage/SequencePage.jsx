@@ -4,6 +4,7 @@ import ZoomButtons from '../../components/ZoomButtons/ZoomButtons';
 import Sequence from '../../components/Sequence/Sequence'
 import './SequencePage.css';
 import AddFavoriteButton from '../../components/AddFavoriteButton/AddFavoriteButton';
+import GraphView from '../../components/GraphView/GraphView';
 
 export default function SequencePage({sequence, setSequence, user, setUser}) {
   
@@ -17,6 +18,7 @@ export default function SequencePage({sequence, setSequence, user, setUser}) {
       <SearchForm sequence = {sequence} setSequence={setSequence} />
       <Sequence viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} setSequence={setSequence} width={width} />
       <AddFavoriteButton sequence={sequence} user={user} setUser={setUser}/>
+      <GraphView sequence={sequence}/>
     </main>
   );
 }

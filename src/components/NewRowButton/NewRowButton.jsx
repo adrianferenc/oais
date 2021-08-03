@@ -7,7 +7,7 @@ export default function NewRowButton({ rows, setRows }) {
   return (
     <div className="new-row-button">
       <form onSubmit={handleViewSubmit} >
-        <button type="submit" >Add Row</button>
+        <button type="submit" >Show Another Row</button>
       </form>
     </div>
   );
