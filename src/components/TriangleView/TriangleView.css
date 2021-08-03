@@ -1,0 +1,21 @@
+#triangle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 1vw;
+  position: relative;
+  /* width: fit-content; */
+}
+
+.hexagon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+}

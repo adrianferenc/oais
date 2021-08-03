@@ -5,3 +5,11 @@
   position: relative;
   /* width: fit-content; */
 }
+
+.chevron {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 5vh;
+  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
