@@ -44,21 +44,23 @@ function createJWT(user) {
   return jwt.sign({ user }, process.env.SECRET, { expiresIn: "24h" });
 }
 
-
 async function update(req, res) {
   try {
     const user = await User.findById(req.params.id);
-    const idx = user.favorites.findIndex(sequence => sequence.sequenceId===req.body.sequenceId);
-    if (req.body.method==="add"){
-      const newFavorite = {sequenceId: req.body.sequenceId};
-        newFavorite.sequenceName = (req.body.options && req.body.options.sequenceName) ? req.body.options.sequenceName : req.body.sequenceId;
-      if (idx ===-1){
-        user.favorites.push(newFavorite)
-      } else {
-        user.favorites.splice(idx,1,newFavorite);
+    const idx = user.favorites.findIndex(
+      (sequence) => sequence.sequenceId === req.body.sequenceId
+    );
+    if (req.body.method === "add") {
+      const newFavorite = { sequenceId: req.body.sequenceId };
+      newFavorite.sequenceName =
+        req.body.options && req.body.options.sequenceName
+          ? req.body.options.sequenceName
+          : req.body.sequenceId;
+      if (idx === -1) {
+        user.favorites.push(newFavorite);
       }
     } else {
-      user.favorites.splice(idx,1);
+      user.favorites.splice(idx, 1);
     }
     await user.save();
     const token = createJWT(user);

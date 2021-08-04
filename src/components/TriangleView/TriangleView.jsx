@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import colorizer from '../../utilities/color'
-import NewRowButton from '../NewRowButton/NewRowButton';
+import ChangeRowButton from '../ChangeRowButton/ChangeRowButton';
 import './TriangleView.css';
 
 export default function TriangleView({ modulus, showIndex, sequence, width }) {
@@ -34,7 +34,7 @@ export default function TriangleView({ modulus, showIndex, sequence, width }) {
         )
 
       })}
-      <NewRowButton rows={rows} setRows={setRows}/>
+      <ChangeRowButton rows={rows} setRows={setRows}/>
     </div>
   );
 }

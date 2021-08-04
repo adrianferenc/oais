@@ -1,61 +1,84 @@
-import { useState } from 'react';
+import { useState, useCallback } from 'react';
 import Graph from '../Graph/Graph'
+import GraphController from '../GraphController/GraphController';
 import GraphBoundaryButton from '../GraphBoundaryButton/GraphBoundaryButton';
 
-export default function GraphView({ sequence }) {
+export default function GraphView({ showGraph, setShowGraph, sequence }) {
     const [graphStart, setGraphStart] = useState(0);
     const [graphEnd, setGraphEnd] = useState(10);
+    const [type, setType] = useState('');
     const [data, setData] = useState([
         {
             x: xAxis(),
             y: sequence.sequence.slice(graphStart, graphEnd),
             type: 'scatter',
+            name: 'Scatterplot'
         },
     ]);
-    console.log(data);
+
+    
+
     function xAxis() {
         const output = [];
-        for (let i = graphStart; i < graphEnd; i++) {
+        for (let i = graphStart; i <= graphEnd + 1; i++) {
             output.push(i);
         }
         return output;
     }
 
-    function handleGraphChange(evt) {
-        if (evt.target.value === 'scatter') {
-            setData([
+
+    function dataFormatter(type) {
+        if (type === 'scatter') {
+            return [
                 {
                     x: xAxis(),
-                    y: sequence.sequence.slice(graphStart, graphEnd),
+                    y: sequence.sequence.slice(graphStart, graphEnd + 1),
                     type: 'scatter',
+                    name: 'Scatter Plot'
                 },
-            ]);
-        } else if (evt.target.value === 'log') {
-            setData([
+            ];
+        } else if (type === 'log') {
+            return [
                 {
                     x: xAxis(),
-                    y: sequence.sequence.slice(graphStart, graphEnd).map(x => Math.log(x)).slice(graphStart, graphEnd),
+                    y: sequence.sequence.slice(graphStart, graphEnd + 1).map(x => Math.log(x)),
                     type: 'scatter',
+                    name: 'Logarithmic Plot'
                 },
-            ]);
-        } else if (evt.target.value === 'histogram') {
-            setData([{
-                x: sequence.sequence.slice(graphStart, graphEnd),
-                xbins: { size: 1 },
-                type: 'histogram',
-            }]);
+            ];
+        } else if (type === 'histogram') {
+            if (Math.max(...sequence.sequence.slice(graphStart, graphEnd + 1)) - Math.min(...sequence.sequence.slice(graphStart, graphEnd + 1)) < 100000) {
+                return [{
+                    x: sequence.sequence.slice(graphStart, graphEnd),
+                    xbins: { size: 1 },
+                    type: 'histogram',
+                    name: 'Histogram'
+                }];
+            }
+
         }
+    }
+
+    const memoizedHandleGraphChange = useCallback(
+        (evt) => handleGraphChange(evt),
+        [type],
+      );
+
+    function handleGraphChange(evt) {
+        setType(evt.target.value);
+        setShowGraph(true);
+        setData(dataFormatter(type));
     }
 
     return (
         <>
-            <button value='scatter' onClick={handleGraphChange}>Scatter</button>
-            <button value='log' onClick={handleGraphChange}>Log</button>
-            <button value='histogram' onClick={handleGraphChange}>Histogram</button>
-            <Graph data={data} />
-            <GraphBoundaryButton data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
-
-            <GraphBoundaryButton data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+        <GraphController memoizedHandleGraphChange = {memoizedHandleGraphChange} handleGraphChange = {handleGraphChange} setShowGraph = {setShowGraph}/>
+            
+            {showGraph && <div>
+                <Graph data={data} />
+                <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
+                <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+            </div>}
         </>
     )
 }
