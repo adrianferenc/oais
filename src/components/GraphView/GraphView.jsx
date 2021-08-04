@@ -60,8 +60,7 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
     }
 
     const memoizedHandleGraphChange = useCallback(
-        (evt) => handleGraphChange(evt),
-        [type],
+        (evt) => handleGraphChange(evt)
       );
 
     function handleGraphChange(evt) {

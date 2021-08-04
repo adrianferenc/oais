@@ -5,7 +5,7 @@ export default function ZoomButtons({ width, setWidth }) {
   async function handleZoomSubmit(evt, pm) {
     evt.preventDefault();
     if (pm === 'reset') {
-      setWidth(100);
+      setWidth(60);
     } else {
       const change = pm === "plus" ? 10 : -10;
       setWidth(width + change > 30 ? width + change : 30);

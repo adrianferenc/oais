@@ -3,8 +3,8 @@ import SetModButton from '../SetModButton/SetModButton';
 import './Sequence.css';
 import SequenceView from '../SequenceView/SequenceView';
 import TriangleView from '../TriangleView/TriangleView';
-
-export default function Sequence({ viewStart, setViewStart, sequence, width, inColor }) {
+import ColorSwitch from '../ColorSwitch/ColorSwitch';
+export default function Sequence({ viewStart, setViewStart, sequence, width, inColor, setInColor }) {
   const [modulus, setModulus] = useState(null);
 
 
@@ -14,9 +14,11 @@ export default function Sequence({ viewStart, setViewStart, sequence, width, inC
 
       <SetModButton sequence={sequence} modulus={modulus} setModulus={setModulus} />
 
-      <SequenceView modulus={modulus} viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} inColor = {inColor}/>
+      <ColorSwitch inColor={inColor} setInColor={setInColor} />
 
-      <TriangleView sequence={sequence} modulus={modulus} width={width} inColor = {inColor}/>
+      <SequenceView modulus={modulus} viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} inColor={inColor} />
+
+      <TriangleView sequence={sequence} modulus={modulus} width={width} inColor={inColor} />
     </>
   );
 }

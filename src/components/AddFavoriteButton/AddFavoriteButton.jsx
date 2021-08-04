@@ -12,7 +12,6 @@ export default function AddFavoriteButton({ sequence, user, setUser }) {
     setUserUpdated(true);
   }
 
-  console.log(userUpdated)
   return (
     <div className="add-favorite-button">
       <form onSubmit={handleAddFavorite} >

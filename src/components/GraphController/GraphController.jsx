@@ -10,7 +10,9 @@ export default function GraphController({ memoizedHandleGraphChange, handleGraph
 
     useEffect(() => {
         graphType && memoizedHandleGraphChange(graphType);
-    }, [graphType])
+    }, 
+    [graphType]
+    )
 
     return (
         <>
