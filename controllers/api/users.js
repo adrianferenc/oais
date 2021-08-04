@@ -57,7 +57,10 @@ async function update(req, res) {
           ? req.body.options.sequenceName
           : req.body.sequenceId;
       if (idx === -1) {
+        
         user.favorites.push(newFavorite);
+      } else {
+        user.favorites[idx] = newFavorite;
       }
     } else {
       user.favorites.splice(idx, 1);
