@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-
 import { signUp } from '../../utilities/users-service';
 
 export default function SignUpForm({ setUser }) {
@@ -35,8 +34,6 @@ export default function SignUpForm({ setUser }) {
             setSignUpData({ ...signUpData, error: 'Sign Up Failed - Try Again' })
         }
     };
-
-
 
     return (
         <div>

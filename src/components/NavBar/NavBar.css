@@ -1,4 +1,6 @@
 .navbar {
+  display: flex;
+  flex-direction: column;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,6 +17,10 @@
 }
 
 .navbar-logo {
+  margin-left: 0.5rem;
+}
+
+.navbar-logo a {
   font-size: 2rem;
   color: white;
   font-weight: bold;

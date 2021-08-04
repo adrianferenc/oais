@@ -6,6 +6,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import SequencePage from "../SequencePage/SequencePage"
 import Profile from "../Profile/Profile";
 import NavBar from "../../components/NavBar/NavBar";
+import Dropdown from '../../components/Dropdown/Dropdown'
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -24,6 +25,7 @@ export default function App() {
   return (
     <main className="App">
       <NavBar user={user} setUser={setUser} />
+      <Dropdown />
       <main className="main-page">
         <Switch>
           <Route exact path="/">

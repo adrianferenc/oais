@@ -1,0 +1,14 @@
+.toggle-button {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: fit-content;
+  width: 30px;
+  background-color: rgb(200, 200, 200);
+  border: none;
+  cursor: pointer;
+}
+/* 
+.toggle-buttonL:focus {
+  outline: none;
+} */
