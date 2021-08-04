@@ -2,6 +2,7 @@ import { useState } from 'react';
 import MovementButton from '../../components/MovementButton/MovementButton'
 import ResetPositionButton from '../../components/ResetPositionButton/ResetPositionButton'
 import colorizer from '../../utilities/color'
+import grayizer from '../../utilities/gray'
 import './SequenceView.css';
 
 export default function SequenceView({ modulus, viewStart, setViewStart, sequence, width, inColor}) {
@@ -21,7 +22,7 @@ export default function SequenceView({ modulus, viewStart, setViewStart, sequenc
           </div>
           <div id='sequence'>
             {sequence.sequence.slice(viewStart, viewStart + 10).map((x, idx) => {
-              let color = inColor ? colorizer(sequence.sequence, x, idx, viewStart, modulus): 'gray';
+              let color = inColor ? colorizer(sequence.sequence, x, idx, viewStart, modulus): grayizer(sequence.sequence, x, idx, viewStart, modulus);
               return (
                 <div className="integer" style={{ width: `${width}px`, position: "absolute", left: `${idx * (width * .78) + 40}px` }} key={viewStart + idx}>
                   <div style={{ backgroundColor: color }} className="chevron" value={+x} key={viewStart + idx}>

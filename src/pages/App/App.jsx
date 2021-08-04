@@ -23,30 +23,26 @@ export default function App() {
 
   return (
     <main className="App">
-      {user ?
-        <>
-          <NavBar user={user} setUser={setUser} />
-          <Switch>
-            <Route exact path="/">
-              <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} />
-            </Route>
+      <NavBar user={user} setUser={setUser} />
+      <main className="main-page">
+        <Switch>
+          <Route exact path="/">
+            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} />
+          </Route>
 
-            <Route exact path="/profile">
-              <Profile user={user} setUser={setUser} setSequence={setSequence} />
-            </Route>
+          <Route exact path="/profile">
+            <Profile user={user} setUser={setUser} setSequence={setSequence} />
+          </Route>
 
-            <Route>
-              <Redirect to="/" />
-            </Route>
-          </Switch>
-        </>
-        : (
-          <>
-            <h1>{auth ? 'Sign Up' : 'Login'}</h1>
-            <AuthPage setUser={setUser} auth={auth} />
-            <button onClick={() => setAuth(!auth)}> {auth ? 'Login' : 'Sign Up'} </button>
-          </>
-        )}
-    </main>
+          <Route exact path="/signup">
+            <AuthPage setUser={setUser} auth={auth} setAuth={setAuth} />
+          </Route>
+
+          <Route>
+            <Redirect to="/" />
+          </Route>
+        </Switch>
+      </main>
+    </main >
   );
 }

@@ -24,20 +24,19 @@ export default function Profile({ user, setUser, setSequence }) {
 
   return (
     <main className="Profile">
-      <h1>Profile</h1>
-      <h3>Welcome {user.name}</h3>
-      <h4>Favorite Sequences:</h4>
+      <h1>Welcome {user.name}</h1>
+      <h3>Favorite Sequences:</h3>
       <div className="favorites">
-          {user.favorites.map((sequence, idx) => {
-            return (
-              <div key={idx}>
-                <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.sequenceName}</Link>
-                <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
-                <RenameFavoriteButton sequence={sequence} setUser={setUser} />
-              </div>
-            )
-          })
-          }
+        {user.favorites.map((sequence, idx) => {
+          return (
+            <div key={idx}>
+              <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.sequenceName}</Link>
+              <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
+              <RenameFavoriteButton sequence={sequence} setUser={setUser} />
+            </div>
+          )
+        })
+        }
       </div>
       <div>{ }</div>
       <button color="primary" onClick={handleCheckToken}>Check When My Login Expires</button>

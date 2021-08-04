@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import colorizer from '../../utilities/color'
+import grayizer from '../../utilities/gray';
 import ChangeRowButton from '../ChangeRowButton/ChangeRowButton';
 import './TriangleView.css';
 
 export default function TriangleView({ modulus, showIndex, sequence, width, inColor }) {
-  const [rows,setRows] = useState(10);
+  const [rows, setRows] = useState(10);
   const triangleArray = [];
   for (let i = 0; i < rows; i++) {
     let rowArray = [];
@@ -22,7 +23,7 @@ export default function TriangleView({ modulus, showIndex, sequence, width, inCo
 
           <div key={idx} className="row" position="relative">
             {row.map(elt => {
-              let color = inColor ? colorizer(sequence.sequence, sequence.sequence[elt], elt, 0, modulus): 'gray';
+              let color = inColor ? colorizer(sequence.sequence, sequence.sequence[elt], elt, 0, modulus) : grayizer(sequence.sequence, sequence.sequence[elt], elt, 0, modulus);
               return (
 
                 <div className="integer" style={{ width: `${width}px` }} key={elt}>
@@ -34,7 +35,7 @@ export default function TriangleView({ modulus, showIndex, sequence, width, inCo
         )
 
       })}
-      <ChangeRowButton rows={rows} setRows={setRows}/>
+      <ChangeRowButton rows={rows} setRows={setRows} />
     </div>
   );
 }

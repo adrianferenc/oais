@@ -20,7 +20,7 @@ export default function SequencePage({sequence, setSequence, user, setUser}) {
       <ZoomButtons width={width} setWidth={setWidth} />
       <SearchForm sequence = {sequence} setSequence={setSequence} />
       <Sequence viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} setSequence={setSequence} width={width}  inColor = {inColor} setInColor = {setInColor}/>
-      <AddFavoriteButton sequence={sequence} user={user} setUser={setUser}/>
+      {user && <AddFavoriteButton sequence={sequence} user={user} setUser={setUser}/>}
       <GraphView showGraph = {showGraph} setShowGraph={setShowGraph} sequence={sequence}/>
     </main>
   );

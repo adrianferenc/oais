@@ -1,12 +1,14 @@
 import { useState } from 'react';
+import { useHistory } from 'react-router';
 import { login } from '../../utilities/users-service';
 
-export default function LogIn({setUser}) {
+export default function LogIn({ setUser }) {
   const [credentials, setCredentials] = useState({
     email: '',
     password: ''
   });
   const [error, setError] = useState('');
+  let history = useHistory();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
@@ -18,6 +20,7 @@ export default function LogIn({setUser}) {
     try {
       const user = await login(credentials);
       setUser(user);
+      history.push('/profile');
     } catch {
       setError('Log In Failed - Try Again');
     }

@@ -1,0 +1,50 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgb(200, 200, 200);
+  height: 50px;
+}
+
+.navigation {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.navbar-logo {
+  font-size: 2rem;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.spacer {
+  flex: 1;
+}
+
+.navbar-items {
+  color: red;
+}
+
+.navbar-items ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.navbar-items li {
+  padding: 0 0.5rem;
+}
+
+.navbar-items a {
+  text-decoration: none;
+  color: white;
+}
+
+.navbar-items a:hover {
+  color: black;
+}
