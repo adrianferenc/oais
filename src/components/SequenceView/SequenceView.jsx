@@ -4,7 +4,7 @@ import ResetPositionButton from '../../components/ResetPositionButton/ResetPosit
 import colorizer from '../../utilities/color'
 import './SequenceView.css';
 
-export default function SequenceView({ modulus, viewStart, setViewStart, sequence, width }) {
+export default function SequenceView({ modulus, viewStart, setViewStart, sequence, width, inColor}) {
   const [showIndex, setShowIndex] = useState(false);
 
   function handleShowIndex() {
@@ -21,7 +21,7 @@ export default function SequenceView({ modulus, viewStart, setViewStart, sequenc
           </div>
           <div id='sequence'>
             {sequence.sequence.slice(viewStart, viewStart + 10).map((x, idx) => {
-              let color = colorizer(sequence.sequence, x, idx, viewStart, modulus);
+              let color = inColor ? colorizer(sequence.sequence, x, idx, viewStart, modulus): 'gray';
               return (
                 <div className="integer" style={{ width: `${width}px`, position: "absolute", left: `${idx * (width * .78) + 40}px` }} key={viewStart + idx}>
                   <div style={{ backgroundColor: color }} className="chevron" value={+x} key={viewStart + idx}>
