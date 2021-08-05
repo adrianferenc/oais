@@ -6,7 +6,7 @@ import './Dropdown.css';
 
 
 
-export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, width, setWidth, inColor, setInColor, colorModulus, setColorModulus, showGraph, setShowGraph, showIndex, setShowIndex }) {
+export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numberModulus, setNumberModulus, width, setWidth, inColor, setInColor, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex }) {
     const location = useLocation();
     let dropdownClasses = "dropdown-window";
     if (dropdownOpen) {
@@ -23,16 +23,16 @@ export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, widt
                 <div className='dropdown-body'>
                     <div className='dropdown-option-box'>
                         <h4>Number Options</h4>
-                        <div>Show Sequence</div>
-                        <div>Show Triangle</div>
-                        <div>Apply Mod</div>
+                        <div><button onClick={() => setShowSequence(!showSequence)}>{showSequence ? `Hide` : `Show`} Sequence</button></div>
                         <div><button disabled={sequence.sequenceId === ''} onClick={() => { setShowIndex(!showIndex) }}>{showIndex ? `Hide` : `Show`} Index</button></div>
+                        <div><button onClick={() => setShowTriangle(!showTriangle)}>{showTriangle ? `Hide` : `Show`} Triangle</button></div>
+                        <div><SetModButton sequence={sequence} modulus={numberModulus} setModulus={(x) => { setNumberModulus(x); setColorModulus(x) }} type={'Number'} /></div>
                     </div>
 
                     <div className='dropdown-option-box'>
                         <h4>Color Options</h4>
                         <div><ColorSwitch inColor={inColor} setInColor={setInColor} /></div>
-                        <div><SetModButton sequence={sequence} modulus={colorModulus} setModulus={setColorModulus} /></div>
+                        <div><SetModButton sequence={sequence} modulus={colorModulus} setModulus={setColorModulus} type={'Color'} /></div>
                     </div>
 
                     <div className='dropdown-option-box'>

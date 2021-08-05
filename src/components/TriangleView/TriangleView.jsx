@@ -4,7 +4,7 @@ import grayizer from '../../utilities/gray';
 import ChangeRowButton from '../ChangeRowButton/ChangeRowButton';
 import './TriangleView.css';
 
-export default function TriangleView({ colorModulus, showIndex, sequence, width, inColor }) {
+export default function TriangleView({ colorModulus, numberModulus, sequence, width, inColor }) {
   const [rows, setRows] = useState(10);
   const triangleArray = [];
   for (let i = 0; i < rows; i++) {
@@ -27,7 +27,7 @@ export default function TriangleView({ colorModulus, showIndex, sequence, width,
               return (
 
                 <div className="integer" style={{ width: `${width}px` }} key={elt}>
-                  <div style={{ backgroundColor: color }} className="hexagon" value={sequence.sequence[elt]} key={elt}>{sequence.sequence[elt]}</div>
+                  <div style={{ backgroundColor: color }} className="hexagon" value={sequence.sequence[elt]} key={elt}>{numberModulus === null ? sequence.sequence[elt] : (+sequence.sequence[elt] % numberModulus)}</div>
                 </div>
               )
             })}

@@ -4,16 +4,11 @@ import colorizer from '../../utilities/color'
 import grayizer from '../../utilities/gray'
 import './SequenceView.css';
 
-export default function SequenceView({ showIndex, colorModulus, viewStart, setViewStart, sequence, width, inColor }) {
-  
+export default function SequenceView({ showIndex, numberModulus, colorModulus, viewStart, setViewStart, sequence, width, inColor }) {
 
   return (
     <div className="sequence-view">
-      
-      <div className="OAIS">
-        <div>
-          <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'left'} />
-        </div>
+
         <br />
         <div id='sequence'>
 
@@ -22,7 +17,7 @@ export default function SequenceView({ showIndex, colorModulus, viewStart, setVi
             return (
               <div className="integer" style={{ zIndex: 1, width: `${width}px`, position: "absolute", left: `${idx * (width * .78) + 40}px` }} key={viewStart + idx}>
                 <div style={{ backgroundColor: color }} className="chevron" value={+x} key={viewStart + idx}>
-                  <p className="number">{x}</p>
+                  <p className="number">{numberModulus ===null ? x : (+x%numberModulus)}</p>
                 </div>
                 <div id="index-view">{showIndex && viewStart + idx}</div>
               </div>
@@ -30,9 +25,11 @@ export default function SequenceView({ showIndex, colorModulus, viewStart, setVi
           })}
         </div>
         <div>
+          <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'left'} />
+        </div>
+        <div>
           <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'right'} />
         </div>
-      </div>
       <div><ResetPositionButton viewStart={viewStart} setViewStart={setViewStart} /></div>
     </div>
   );

@@ -68,12 +68,11 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
     }
 
     return (
-         showGraph && <div>
+        showGraph && <div>
             <div className="graph">
-                <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
-
                 <div>
                     <Graph data={data} />
+                <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
                     <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
                     <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
                 </div>

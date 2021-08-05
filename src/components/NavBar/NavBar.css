@@ -21,7 +21,7 @@
 }
 
 .navbar-logo a {
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   font-weight: bold;
   text-decoration: none;
@@ -51,6 +51,19 @@
   color: white;
 }
 
-.navbar-items a:hover, .navbar-items a:active {
+.navbar-items a:hover,
+.navbar-items a:active {
   color: black;
+}
+
+.oeis-logo {
+  display: flex;
+}
+
+.show-on-hover {
+  display: none;
+}
+.oeis-logo:hover > .show-on-hover {
+  display: block;
+  font-size: 1rem;
 }

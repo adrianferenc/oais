@@ -1,8 +1,8 @@
 .set-change {
-    width: 127.906px;
+    width: 150px;
 }
 
-.color-mod-form {
+.mod-form {
     display: flex;
     justify-content: space-around;
 }

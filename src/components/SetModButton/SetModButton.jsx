@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './SetModButton.css'
 
-export default function SetModButton({ modulus, setModulus, sequence }) {
+export default function SetModButton({ modulus, setModulus, sequence, type }) {
   const [newMod, setNewMod] = useState('');
 
   function handleChange(evt) {
@@ -11,6 +11,7 @@ export default function SetModButton({ modulus, setModulus, sequence }) {
   async function handleMod(evt) {
     evt.preventDefault();
     setModulus(newMod);
+    setNewMod('');
   }
 
   async function removeMod(evt) {
@@ -20,10 +21,10 @@ export default function SetModButton({ modulus, setModulus, sequence }) {
   }
 
   return (
-    <div className='color-mod-form'>
+    <div className='mod-form'>
       <form onSubmit={handleMod}>
         <input type="number" name='modulus' className = 'modulus-textbox' placeholder={modulus} value={newMod} onChange={handleChange} required />
-        <button className='set-change' disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">{modulus === null ? `Set` : `Change`} Color Mod</button>
+        <button className='set-change' disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">{modulus === null ? `Set` : `Change`} {type} Mod</button>
       </form>
       <button disabled={!modulus} onClick={removeMod}>Remove Mod</button>
     </div>

@@ -17,6 +17,11 @@ export default function App() {
   const [inColor, setInColor] = useState(true);
 
   const [colorModulus, setColorModulus] = useState(null);
+  const [numberModulus, setNumberModulus] = useState(null);
+
+  const [showSequence, setShowSequence] = useState(true);
+
+  const [showTriangle, setShowTriangle] = useState(false);
 
   const [showGraph, setShowGraph] = useState(false);
 
@@ -33,11 +38,11 @@ export default function App() {
 
   return (
     <div>
-      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width = {width} setWidth = {setWidth}inColor = {inColor} setInColor = {setInColor} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex ={showIndex} setShowIndex = {setShowIndex} showGraph = {showGraph} setShowGraph={setShowGraph}/>
+      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} />
       <div className="main-page">
         <Switch>
           <Route exact path="/">
-            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width = {width} inColor={inColor} colorModulus={colorModulus} showGraph = {showGraph} setShowGraph={setShowGraph} showIndex = {showIndex}/>
+            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} />
           </Route>
 
           <Route exact path="/profile">
