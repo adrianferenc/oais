@@ -12,4 +12,19 @@
 
 .boundary-value {
     font-size: 1.5rem;
+    margin: 0 1rem;
+}
+
+.change-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 2rem;   
+}
+
+.buttons-label {
+    display: flex;
+    justify-content: center;
 }

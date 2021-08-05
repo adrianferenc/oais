@@ -1,7 +1,6 @@
 import './ZoomButtons.css'
 export default function ZoomButtons({ sequence, width, setWidth }) {
 
-console.log(sequence);
   async function handleZoomSubmit(evt, pm) {
     evt.preventDefault();
     if (pm === 'reset') {
@@ -15,15 +14,15 @@ console.log(sequence);
   return (
     <>
       <div className="zoom-buttons">
-        <div style={{ paddingRight: '10px' }}>Zoom: </div>
+        <div style={{ paddingRight: '1rem' }}>Zoom: </div>
         <form onSubmit={(evt) => handleZoomSubmit(evt, "minus")}>
-          <button disabled={!sequence.sequenceId} type="submit">-</button>
+          <button className = 'change-button button' disabled={!sequence.sequenceId} type="submit">-</button>
         </form>
         <form onSubmit={(evt) => handleZoomSubmit(evt, "reset")}>
-          <button disabled={!sequence.sequenceId} type="submit">Reset</button>
+          <button className = 'button' disabled={!sequence.sequenceId} type="submit">Reset</button>
         </form>
         <form onSubmit={(evt) => handleZoomSubmit(evt, "plus")} >
-          <button disabled={!sequence.sequenceId} type="submit" >+</button>
+          <button className = 'change-button button' disabled={!sequence.sequenceId} type="submit" >+</button>
         </form>
 
       </div>

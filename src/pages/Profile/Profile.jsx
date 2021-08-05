@@ -3,8 +3,7 @@ import { checkToken } from '../../utilities/users-service';
 import { searchResult } from '../../utilities/sequences-api';
 import DeleteFavoriteButton from '../../components/DeleteFavoriteButton/DeleteFavoriteButton'
 import RenameFavoriteButton from "../../components/RenameFavoriteButton/RenameFavoriteButton";
-
-
+import './Profile.css'
 
 export default function Profile({ user, setUser, setSequence }) {
 
@@ -19,23 +18,26 @@ export default function Profile({ user, setUser, setSequence }) {
   }
 
   return (
-    <div className="Profile">
-      <h1>Welcome {user.name}</h1>
+    <div className="profile">
+      <h1>Welcome {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</h1>
       <h3>Favorite Sequences:</h3>
-      <div className="favorites">
+      <div className="favorites-list">
         {user.favorites.map((sequence, idx) => {
           return (
-            <div key={idx}>
+            <div className='favorite' key={idx}>
               <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.sequenceName}</Link>
-              <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
-              <RenameFavoriteButton sequence={sequence} setUser={setUser} />
+              <div className='favorite-buttons'>
+                <RenameFavoriteButton sequence={sequence} setUser={setUser} />
+                <div className='spacer' />
+                <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
+              </div>
             </div>
           )
         })
         }
       </div>
-      <div>{ }</div>
-      <button color="primary" onClick={handleCheckToken}>Check When My Login Expires</button>
+
+      <button className="check-login" onClick={handleCheckToken}>Check When My Login Expires</button>      
     </div>
   );
 }

@@ -4,7 +4,7 @@ import GraphController from '../GraphController/GraphController';
 import GraphBoundaryButton from '../GraphBoundaryButton/GraphBoundaryButton';
 import './GraphView.css'
 
-export default function GraphView({ showGraph, setShowGraph, sequence }) {
+export default function GraphView({ showGraph, setShowGraph, sequence, graphSize }) {
     const [graphStart, setGraphStart] = useState(0);
     const [graphEnd, setGraphEnd] = useState(10);
     const [type, setType] = useState('');
@@ -74,7 +74,7 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
                         <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
                     </div>
                     <div className="graph">
-                    <Graph data={data} />
+                    <Graph data={data} graphSize={graphSize}/>
                     </div>
                     <div className='boundary-button-group'>
                         <div className='boundary-button'>

@@ -27,7 +27,7 @@ export default function RenameFavoriteButton({ sequence, setUser }) {
     <>
       {clicked ?
         <form onSubmit={handleRename}>
-          <input type="text" name='renameValue' placeholder={sequence.sequenceName} value={newName} onChange={handleChange} required />
+          <input type="text" style={{width:'auto'}} name='renameValue' placeholder={sequence.sequenceName} value={newName} onChange={handleChange} required />
           <button type="submit">Change name</button>
           <button onClick={() => setClicked(false)}>Cancel</button>
         </form> : <button onClick={handeRenameButton}>Rename Sequence</button>

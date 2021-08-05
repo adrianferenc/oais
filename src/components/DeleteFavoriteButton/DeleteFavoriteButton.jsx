@@ -12,7 +12,7 @@ export default function DeleteFavoriteButton({ sequenceId, setUser }) {
   return (
     <div className="delete-favorite-button">
       <form onSubmit={handleDeleteFavorite} >
-        <button type="submit" >Delete Sequence from Favorites</button>
+        <button type="submit" >Remove Sequence from Favorites</button>
       </form>
     </div>
   );

@@ -18,6 +18,7 @@ export default function App() {
   const [inColor, setInColor] = useState(true);
 
   const [colorModulus, setColorModulus] = useState(null);
+
   const [numberModulus, setNumberModulus] = useState(null);
 
   const [showSequence, setShowSequence] = useState(true);
@@ -27,6 +28,8 @@ export default function App() {
   const [showGraph, setShowGraph] = useState(false);
 
   const [showIndex, setShowIndex] = useState(false);
+
+  const [graphSize, setGraphSize] = useState(0);
 
   const [sequence, setSequence] = useState({
     sequenceId: '',
@@ -38,14 +41,14 @@ export default function App() {
   });
 
   return (
-    <div>
-      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} />
+    <div className='app'>
+      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} graphSize={graphSize} setGraphSize={setGraphSize}/>
       <div className="main-page">
         <Switch>
           <Route exact path="/">
             
             
-            {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} /> : <About setSequence={setSequence}/>}
+            {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} graphSize={graphSize} /> : <About setSequence={setSequence} />}
           </Route>
 
           <Route exact path="/profile">

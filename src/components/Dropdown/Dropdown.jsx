@@ -3,10 +3,11 @@ import ColorSwitch from '../ColorSwitch/ColorSwitch';
 import SetModButton from '../SetModButton/SetModButton';
 import { useLocation } from 'react-router-dom'
 import './Dropdown.css';
+import GraphSizeButtons from '../GraphSizeButtons/GraphSizeButtons';
 
 
 
-export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numberModulus, setNumberModulus, width, setWidth, inColor, setInColor, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex }) {
+export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numberModulus, setNumberModulus, width, setWidth, inColor, setInColor, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex, graphSize, setGraphSize }) {
     const location = useLocation();
     let dropdownClasses = "dropdown-window";
     if (dropdownOpen) {
@@ -16,9 +17,9 @@ export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numb
         location.pathname === '/' && <div className={dropdownClasses}>
             <div className="dropdown-options">
                 <div className='dropdown-top-view'>
-                    <button disabled={!sequence.sequenceId} onClick={() => { setDropdownOpen(!dropdownOpen) }}> {dropdownOpen ? 'Close' : 'Open'}</button>
+                    <button className="open-button" disabled={!sequence.sequenceId} onClick={() => { setDropdownOpen(!dropdownOpen) }}> {dropdownOpen ? 'Close' : 'Open'}</button>
                     <div className="spacer" />
-                    <ZoomButtons sequence = {sequence} width={width} setWidth={setWidth} />
+                    <ZoomButtons sequence={sequence} width={width} setWidth={setWidth} />
                 </div>
                 <div className='dropdown-body'>
                     <div className='dropdown-option-box'>
@@ -38,7 +39,7 @@ export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numb
                     <div className='dropdown-option-box'>
                         <h4>Graph Options</h4>
                         <div><button onClick={() => setShowGraph(!showGraph)}>{showGraph ? `Hide` : `Show`} Graph</button></div>
-                        <div>Select Size</div>
+                        <div><GraphSizeButtons graphSize={graphSize} setGraphSize={setGraphSize} /></div>
                     </div>
 
 

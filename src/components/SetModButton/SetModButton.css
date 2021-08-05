@@ -23,11 +23,10 @@
   display: flex;
   flex-wrap: nowrap;
 }
-
+/* 
 .set-change, .remove {
   max-height: 20px;
-
-}
+} */
 
 .remove {
   min-width: fit-content;

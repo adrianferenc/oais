@@ -8,7 +8,7 @@ export default function SequenceView({ showIndex, numberModulus, colorModulus, v
 
   return (
     <div className="sequence-view">
-
+        
       <br />
       <div id='sequence'>
 

@@ -3,7 +3,7 @@ import SearchForm from '../../components/SearchForm/SearchForm'
 import * as usersService from '../../utilities/users-service';
 import './NavBar.css'
 
-export default function NavBar({ user, setUser, sequence, setSequence }) {
+export default function NavBar({ user, setUser, sequence, setSequence, width }) {
     function handleLogOut() {
         usersService.logOut();
         setUser(null);
@@ -20,13 +20,13 @@ export default function NavBar({ user, setUser, sequence, setSequence }) {
                     <div className="spacer" />
                     <div className='navbar-items'>
                         <ul>
-                            <li><SearchForm sequence={sequence} setSequence={setSequence} /></li>
+                            <li><SearchForm sequence={sequence} setSequence={setSequence} width={width}/></li>
                             {user ?
-                                <>
-                                    <li>Welcome, {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</li>
+                                <div className='navbar-links'>
+                                    <li>Hello {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</li>
                                     <li><Link to="/profile">View Profile</Link></li>
                                     <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
-                                </>
+                                </div>
                                 :
                                 <li><Link to="/signup">Sign Up/Login</Link></li>
                             }

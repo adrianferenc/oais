@@ -32,6 +32,8 @@
 }
 
 .navbar-items {
+  display: flex;
+  align-items: center;
   color: rgb(218, 164, 92);
   font-weight: bold;
 }
@@ -68,4 +70,9 @@
 .oeis-logo:hover > .show-on-hover {
   display: block;
   font-size: 1rem;
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
 }

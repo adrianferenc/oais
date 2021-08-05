@@ -1,8 +1,49 @@
 .oais-color {
-  color: rgb(98,172,181);
+  color: rgb(98, 172, 181);
   font-weight: bold;
 }
 
 .main-page {
   margin-top: 100px;
+}
+
+input,
+button,
+a {
+  outline-color: rgb(243, 210, 166);
+}
+
+a:visited {
+  color: rgb(98, 172, 181);
+}
+
+input {
+  height: 2.3rem;
+  border-radius: 0.3rem;
+  border-color: rgb(98, 172, 181);
+  margin: 0 0.2rem;
+}
+
+input[type="text"] {
+  font-size: 1.2rem;
+}
+
+button {
+  border-radius: 0.3rem;
+  border: none;
+  padding: 0.7rem 0.4rem;
+  margin: 0.1rem;
+  background-color: rgb(218, 164, 92);
+}
+
+button:hover {
+  background-color: rgb(185, 138, 77);
+}
+
+button:active {
+  background-color: rgb(153, 111, 57);
+}
+
+.app {
+  font-size: 14pt;
 }

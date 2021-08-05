@@ -13,15 +13,15 @@ export default function GraphBoundaryButton({ type, dataFormatter, setData, grap
     }
 
     return (
-        
+
         <div className='graph-boundary-button'>
-            <div className ="boundary-changer">
-                <button value="minus" onClick={handleChange}>-</button>
+            <div className="boundary-changer">
+                <button className="change-button" value="minus" onClick={handleChange}>-</button>
                 <div className='boundary-value'>{newBoundary}</div>
-                <button value="plus" onClick={handleChange}>+</button>
+                <button className="change-button" value="plus" onClick={handleChange}>+</button>
             </div>
-            <h6>Graph {boundary === 'Start' ? `Starting` : 'Ending'} Point</h6>
-            </div>
-        
+            <h6 className="buttons-label">Graph {boundary === 'Start' ? `Starting` : 'Ending'} Point</h6>
+        </div>
+
     )
 }
