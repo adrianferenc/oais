@@ -1,3 +1,5 @@
+import './ResetPositionButton.css'
+
 export default function ResetPositionButton({ viewStart, setViewStart }) {
 
 
@@ -7,10 +9,10 @@ export default function ResetPositionButton({ viewStart, setViewStart }) {
   }
 
   return (
-      <div>
-        <form onSubmit={handleViewSubmit}>
-          <button type="submit">Reset</button>
-        </form>
-      </div>
+    <div>
+      <form onSubmit={handleViewSubmit}>
+        <button className='reset-button' type="submit">Reset</button>
+      </form>
+    </div>
   );
 }

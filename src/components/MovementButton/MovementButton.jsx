@@ -1,3 +1,5 @@
+import './MovementButton.css'
+
 export default function MovementButton({ viewStart, setViewStart, direction }) {
   const label = direction === 'right' ? <>&#8594;</> : <>&#8592;</>;
 
@@ -8,10 +10,8 @@ export default function MovementButton({ viewStart, setViewStart, direction }) {
   }
 
   return (
-    <div className="movement-button">
-      <form onSubmit={handleViewSubmit} >
-        <button type="submit" >{label}</button>
-      </form>
-    </div>
+    <form onSubmit={handleViewSubmit} >
+      <button className="movement-button" type="submit" >{label}</button>
+    </form>
   );
 }

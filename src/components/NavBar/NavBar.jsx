@@ -14,7 +14,7 @@ export default function NavBar({ user, setUser, sequence, setSequence }) {
             <header className='navbar'>
                 <nav className='navigation'>
                     <div className='navbar-logo' >
-                        <Link to="/"><div className='oeis-logo'><div className='show-on-hover'>The&nbsp;</div>O<div className='show-on-hover'>nline&nbsp;</div>A<div className='show-on-hover'>tlas&nbsp;of&nbsp;</div>I<div className='show-on-hover'>nteger&nbsp;</div>S<div className='show-on-hover'>equences </div></div></Link>
+                        <Link to="/"><div className='oeis-logo oais-color'><div className='show-on-hover'>The&nbsp;</div>O<div className='show-on-hover'>nline&nbsp;</div>A<div className='show-on-hover'>tlas&nbsp;of&nbsp;</div>I<div className='show-on-hover'>nteger&nbsp;</div>S<div className='show-on-hover'>equences </div></div></Link>
                     </div >
 
                     <div className="spacer" />
@@ -23,7 +23,7 @@ export default function NavBar({ user, setUser, sequence, setSequence }) {
                             <li><SearchForm sequence={sequence} setSequence={setSequence} /></li>
                             {user ?
                                 <>
-                                    <li>Welcome, {user && user.name}</li>
+                                    <li>Welcome, {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</li>
                                     <li><Link to="/profile">View Profile</Link></li>
                                     <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
                                 </>

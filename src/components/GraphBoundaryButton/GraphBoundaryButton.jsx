@@ -1,3 +1,5 @@
+import './GraphBoundaryButton.css'
+
 export default function GraphBoundaryButton({ type, dataFormatter, setData, graphStart, graphEnd, boundarySetter, boundary }) {
     const newBoundary = boundary === 'Start' ? graphStart : graphEnd;
 
@@ -11,11 +13,15 @@ export default function GraphBoundaryButton({ type, dataFormatter, setData, grap
     }
 
     return (
-        <>
+        
+        <div className='graph-boundary-button'>
+            <div className ="boundary-changer">
+                <button value="minus" onClick={handleChange}>-</button>
+                <div className='boundary-value'>{newBoundary}</div>
+                <button value="plus" onClick={handleChange}>+</button>
+            </div>
             <h6>Graph {boundary === 'Start' ? `Starting` : 'Ending'} Point</h6>
-            <button value="minus" onClick={handleChange}>-</button>
-            <div>{newBoundary}</div>
-            <button value="plus" onClick={handleChange}>+</button>
-        </>
+            </div>
+        
     )
 }

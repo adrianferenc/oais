@@ -1,0 +1,12 @@
+.controller {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.histogram-note {
+  visibility: hidden;
+}
+.controller-buttons:hover + .histogram-note {
+    visibility: visible;
+}

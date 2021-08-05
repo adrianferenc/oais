@@ -22,11 +22,11 @@ export default function SetModButton({ modulus, setModulus, sequence, type }) {
 
   return (
     <div className='mod-form'>
-      <form onSubmit={handleMod}>
-        <input type="number" name='modulus' className = 'modulus-textbox' placeholder={modulus} value={newMod} onChange={handleChange} required />
+      <form className = 'mod-set-block' onSubmit={handleMod}>
+        <input type="number" name='modulus' className='modulus-textbox' placeholder={modulus} value={newMod} onChange={handleChange} required />
         <button className='set-change' disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">{modulus === null ? `Set` : `Change`} {type} Mod</button>
       </form>
-      <button disabled={!modulus} onClick={removeMod}>Remove Mod</button>
+      <button className='remove' disabled={!modulus} onClick={removeMod}>Remove Mod</button>
     </div>
   );
 }

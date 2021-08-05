@@ -1,0 +1,12 @@
+.about-page {
+    font-family: serif;
+    font-size: 1.3rem;
+    line-height: 1.4;
+}
+
+.oeis-sequence {
+    display: flex;
+    font-family: monospace;
+    font-size: 1.2rem;
+    justify-content: center;
+}

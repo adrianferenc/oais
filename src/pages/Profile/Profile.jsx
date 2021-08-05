@@ -1,11 +1,12 @@
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { checkToken } from '../../utilities/users-service';
 import { searchResult } from '../../utilities/sequences-api';
 import DeleteFavoriteButton from '../../components/DeleteFavoriteButton/DeleteFavoriteButton'
 import RenameFavoriteButton from "../../components/RenameFavoriteButton/RenameFavoriteButton";
 
+
+
 export default function Profile({ user, setUser, setSequence }) {
-  const history = useHistory();
 
   async function handleCheckToken() {
     const dateExp = await checkToken()
@@ -14,12 +15,7 @@ export default function Profile({ user, setUser, setSequence }) {
 
   async function getSequence(query) {
     const search = await searchResult(query.padStart(6, "0"));
-    setSequence({ sequenceId: query, sequence: search })
-    reroute();
-  }
-
-  function reroute() {
-    history.push("/")
+    setSequence({ sequenceId: query, sequence: search, options: { sequenceName: `A${query.padStart(6, "0")}` } })
   }
 
   return (

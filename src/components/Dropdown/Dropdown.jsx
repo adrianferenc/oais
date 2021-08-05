@@ -16,13 +16,13 @@ export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numb
         location.pathname === '/' && <div className={dropdownClasses}>
             <div className="dropdown-options">
                 <div className='dropdown-top-view'>
-                    <button disabled={location.pathname !== '/'} onClick={() => { setDropdownOpen(!dropdownOpen) }}> {dropdownOpen ? 'Close' : 'Open'}</button>
+                    <button disabled={!sequence.sequenceId} onClick={() => { setDropdownOpen(!dropdownOpen) }}> {dropdownOpen ? 'Close' : 'Open'}</button>
                     <div className="spacer" />
-                    <ZoomButtons width={width} setWidth={setWidth} />
+                    <ZoomButtons sequence = {sequence} width={width} setWidth={setWidth} />
                 </div>
                 <div className='dropdown-body'>
                     <div className='dropdown-option-box'>
-                        <h4>Number Options</h4>
+                        <h4>Sequence Options</h4>
                         <div><button onClick={() => setShowSequence(!showSequence)}>{showSequence ? `Hide` : `Show`} Sequence</button></div>
                         <div><button disabled={sequence.sequenceId === ''} onClick={() => { setShowIndex(!showIndex) }}>{showIndex ? `Hide` : `Show`} Index</button></div>
                         <div><button onClick={() => setShowTriangle(!showTriangle)}>{showTriangle ? `Hide` : `Show`} Triangle</button></div>

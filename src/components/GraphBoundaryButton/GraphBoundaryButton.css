@@ -1,0 +1,15 @@
+.graph-boundary-button {
+    display: flex;
+    flex-direction: column;
+}
+
+.boundary-changer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+.boundary-value {
+    font-size: 1.5rem;
+}

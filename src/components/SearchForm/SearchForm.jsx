@@ -13,8 +13,8 @@ export default function SearchForm({ sequence, setSequence }) {
 
   async function handleSubmit(evt) {
     evt.preventDefault();
-    const search = await searchResult(query.padStart(6, "0"));
-    setSequence({ sequenceId: query, sequence: search });
+    const search = await searchResult(query.replace(/[a-zA-Z]*/g,'').padStart(6, "0"));
+    setSequence({ sequenceId: query.replace(/[a-zA-Z]*/g,''), sequence: search, options:{sequenceName:`{A${query.padStart(6, "0")}}`}});
     history.push('/')
   }
 

@@ -32,7 +32,8 @@
 }
 
 .navbar-items {
-  color: red;
+  color: rgb(218, 164, 92);
+  font-weight: bold;
 }
 
 .navbar-items ul {
@@ -53,7 +54,7 @@
 
 .navbar-items a:hover,
 .navbar-items a:active {
-  color: black;
+  color: rgb(98, 172, 181);
 }
 
 .oeis-logo {
@@ -62,6 +63,7 @@
 
 .show-on-hover {
   display: none;
+  color: white;
 }
 .oeis-logo:hover > .show-on-hover {
   display: block;

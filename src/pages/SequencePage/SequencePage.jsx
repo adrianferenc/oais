@@ -10,7 +10,9 @@ export default function SequencePage({ sequence, setSequence, user, setUser, sho
 
   return (
     <div className="SequencePage">
-      <Sequence user={user} setUser={setUser} showIndex={showIndex} viewStart={viewStart} showSequence={showSequence} showTriangle={showTriangle} setViewStart={setViewStart} sequence={sequence} setSequence={setSequence} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} />
+      <div className='sequence'>
+        <Sequence user={user} setUser={setUser} showIndex={showIndex} viewStart={viewStart} showSequence={showSequence} showTriangle={showTriangle} setViewStart={setViewStart} sequence={sequence} setSequence={setSequence} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} />
+      </div>
       <GraphView showGraph={showGraph} setShowGraph={setShowGraph} sequence={sequence} />
     </div>
   );

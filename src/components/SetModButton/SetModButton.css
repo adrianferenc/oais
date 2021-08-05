@@ -1,12 +1,34 @@
 .set-change {
-    width: 150px;
+  width: 150px;
 }
 
 .mod-form {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: nowrap;
 }
 
-.modulus-textbox{
-    width: 5rem;
+.modulus-textbox {
+  width: 2rem;
+  margin-bottom: 5px;
+}
+
+.modulus-textbox::-webkit-outer-spin-button,
+.modulus-textbox::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mod-set-block {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.set-change, .remove {
+  max-height: 20px;
+
+}
+
+.remove {
+  min-width: fit-content;
 }

@@ -1,7 +1,3 @@
-.OAIS {
-  display: flex;
-}
-
 .integer {
   display: flex;
   flex-direction: column;
@@ -12,4 +8,14 @@
   display: flex;
   font-size: 8pt;
   justify-content: center;
+}
+
+.sequence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sequence-view {
+  margin-bottom: 3rem;
 }

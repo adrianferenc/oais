@@ -6,6 +6,7 @@ import AuthPage from "../AuthPage/AuthPage";
 import SequencePage from "../SequencePage/SequencePage"
 import Profile from "../Profile/Profile";
 import Toolbar from "../../components/Toolbar/Toolbar";
+import About from "../../components/About/About";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
@@ -42,7 +43,9 @@ export default function App() {
       <div className="main-page">
         <Switch>
           <Route exact path="/">
-            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} />
+            
+            
+            {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} /> : <About setSequence={setSequence}/>}
           </Route>
 
           <Route exact path="/profile">

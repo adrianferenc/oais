@@ -45,15 +45,14 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
                 },
             ];
         } else if (type === 'histogram') {
-            if (Math.max(...sequence.sequence.slice(graphStart, graphEnd + 1)) - Math.min(...sequence.sequence.slice(graphStart, graphEnd + 1)) < 100000) {
+            // if (Math.max(...sequence.sequence.slice(graphStart, graphEnd + 1)) - Math.min(...sequence.sequence.slice(graphStart, graphEnd + 1)) < 100000) {
                 return [{
                     x: sequence.sequence.slice(graphStart, graphEnd),
                     xbins: { size: 1 },
                     type: 'histogram',
                     name: 'Histogram'
                 }];
-            }
-
+            // }
         }
     }
 
@@ -69,12 +68,22 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
 
     return (
         showGraph && <div>
-            <div className="graph">
+            <div className="graph-view">
                 <div>
+                    <div className='graph-controller'>
+                        <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
+                    </div>
+                    <div className="graph">
                     <Graph data={data} />
-                <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
-                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
-                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+                    </div>
+                    <div className='boundary-button-group'>
+                        <div className='boundary-button'>
+                            <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
+                        </div>
+                        <div className='boundary-button'>
+                            <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

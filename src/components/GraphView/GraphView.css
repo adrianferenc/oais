@@ -1,4 +1,23 @@
-/* .graph {
-  position: relative;
-  z-index: 0;
-} */
+.graph {
+  display: flex;
+  justify-content: center;
+}
+
+.graph-controller {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 6rem;
+}
+
+.boundary-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.boundary-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
