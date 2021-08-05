@@ -5,31 +5,39 @@ import { getUser } from '../../utilities/users-service'
 import AuthPage from "../AuthPage/AuthPage";
 import SequencePage from "../SequencePage/SequencePage"
 import Profile from "../Profile/Profile";
-import NavBar from "../../components/NavBar/NavBar";
-import Dropdown from '../../components/Dropdown/Dropdown'
+import Toolbar from "../../components/Toolbar/Toolbar";
 
 export default function App() {
   const [user, setUser] = useState(getUser());
 
   const [auth, setAuth] = useState(true);
 
+  const [width, setWidth] = useState(60);
+
+  const [inColor, setInColor] = useState(true);
+
+  const [colorModulus, setColorModulus] = useState(null);
+
+  const [showGraph, setShowGraph] = useState(false);
+
+  const [showIndex, setShowIndex] = useState(false);
+
   const [sequence, setSequence] = useState({
     sequenceId: '',
     sequence: [],
     options: {
       viewStart: 0,
-      width: 100
+      width: width
     },
   });
 
   return (
-    <main className="App">
-      <NavBar user={user} setUser={setUser} />
-      <Dropdown />
-      <main className="main-page">
+    <div>
+      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width = {width} setWidth = {setWidth}inColor = {inColor} setInColor = {setInColor} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex ={showIndex} setShowIndex = {setShowIndex} showGraph = {showGraph} setShowGraph={setShowGraph}/>
+      <div className="main-page">
         <Switch>
           <Route exact path="/">
-            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} />
+            <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width = {width} inColor={inColor} colorModulus={colorModulus} showGraph = {showGraph} setShowGraph={setShowGraph} showIndex = {showIndex}/>
           </Route>
 
           <Route exact path="/profile">
@@ -44,7 +52,7 @@ export default function App() {
             <Redirect to="/" />
           </Route>
         </Switch>
-      </main>
-    </main >
+      </div>
+    </div>
   );
 }

@@ -51,6 +51,6 @@
   color: white;
 }
 
-.navbar-items a:hover {
+.navbar-items a:hover, .navbar-items a:active {
   color: black;
 }

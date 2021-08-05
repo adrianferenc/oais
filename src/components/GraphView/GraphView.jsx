@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 import Graph from '../Graph/Graph'
 import GraphController from '../GraphController/GraphController';
 import GraphBoundaryButton from '../GraphBoundaryButton/GraphBoundaryButton';
+import './GraphView.css'
 
 export default function GraphView({ showGraph, setShowGraph, sequence }) {
     const [graphStart, setGraphStart] = useState(0);
@@ -16,8 +17,6 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
         },
     ]);
 
-    
-
     function xAxis() {
         const output = [];
         for (let i = graphStart; i <= graphEnd + 1; i++) {
@@ -25,7 +24,6 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
         }
         return output;
     }
-
 
     function dataFormatter(type) {
         if (type === 'scatter') {
@@ -61,7 +59,7 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
 
     const memoizedHandleGraphChange = useCallback(
         (evt) => handleGraphChange(evt)
-      );
+    );
 
     function handleGraphChange(evt) {
         setType(evt.target.value);
@@ -70,14 +68,16 @@ export default function GraphView({ showGraph, setShowGraph, sequence }) {
     }
 
     return (
-        <>
-        <GraphController memoizedHandleGraphChange = {memoizedHandleGraphChange} handleGraphChange = {handleGraphChange} setShowGraph = {setShowGraph}/>
-            
-            {showGraph && <div>
-                <Graph data={data} />
-                <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
-                <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
-            </div>}
-        </>
+         showGraph && <div>
+            <div className="graph">
+                <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
+
+                <div>
+                    <Graph data={data} />
+                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
+                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+                </div>
+            </div>
+        </div>
     )
 }

@@ -1,3 +1,12 @@
-button {
-    width: fit-content;
+.set-change {
+    width: 127.906px;
+}
+
+.color-mod-form {
+    display: flex;
+    justify-content: space-around;
+}
+
+.modulus-textbox{
+    width: 5rem;
 }

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import DropdownToggle from "../Dropdown/DropdownToggle";
+import SearchForm from '../../components/SearchForm/SearchForm'
 import * as usersService from '../../utilities/users-service';
 import './NavBar.css'
 
-export default function NavBar({ user, setUser }) {
+export default function NavBar({ user, setUser, sequence, setSequence }) {
 
     function handleLogOut() {
         usersService.logOut();
@@ -21,6 +21,7 @@ export default function NavBar({ user, setUser }) {
                     <div className="spacer" />
                     <div className='navbar-items'>
                         <ul>
+                            <li><SearchForm sequence={sequence} setSequence={setSequence} /></li>
                             {user ?
                                 <>
                                     <li>Welcome, {user && user.name}</li>
@@ -33,9 +34,6 @@ export default function NavBar({ user, setUser }) {
                         </ul>
                     </div>
                 </nav>
-                <div>
-                    <DropdownToggle />
-                </div>
             </header>
 
         </>

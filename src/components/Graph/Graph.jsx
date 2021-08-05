@@ -5,6 +5,7 @@ export default function Graph({ data }) {
         <Plot
             data={data}
             layout={{
+                
                 title: {
                     text: data ? data[0].name : '',
                     font: {

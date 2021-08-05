@@ -23,7 +23,7 @@ export default function Profile({ user, setUser, setSequence }) {
   }
 
   return (
-    <main className="Profile">
+    <div className="Profile">
       <h1>Welcome {user.name}</h1>
       <h3>Favorite Sequences:</h3>
       <div className="favorites">
@@ -40,6 +40,6 @@ export default function Profile({ user, setUser, setSequence }) {
       </div>
       <div>{ }</div>
       <button color="primary" onClick={handleCheckToken}>Check When My Login Expires</button>
-    </main>
+    </div>
   );
 }

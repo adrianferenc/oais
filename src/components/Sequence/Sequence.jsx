@@ -1,24 +1,20 @@
-import { useState } from 'react';
-import SetModButton from '../SetModButton/SetModButton';
 import './Sequence.css';
+import AddFavoriteButton from '../../components/AddFavoriteButton/AddFavoriteButton';
 import SequenceView from '../SequenceView/SequenceView';
 import TriangleView from '../TriangleView/TriangleView';
-import ColorSwitch from '../ColorSwitch/ColorSwitch';
-export default function Sequence({ viewStart, setViewStart, sequence, width, inColor, setInColor }) {
-  const [modulus, setModulus] = useState(null);
+export default function Sequence({ user, setUser, showIndex, viewStart, setViewStart, sequence, width, inColor, colorModulus }) {
+
 
 
   return (
     <>
       <h1>{!!sequence.sequenceId && `Sequence ${sequence.sequenceId}`}</h1>
+      {user && <AddFavoriteButton sequence={sequence} user={user} setUser={setUser} />}
 
-      <SetModButton sequence={sequence} modulus={modulus} setModulus={setModulus} />
 
-      <ColorSwitch inColor={inColor} setInColor={setInColor} />
+      <SequenceView showIndex = {showIndex} colorModulus={colorModulus} viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} inColor={inColor} />
 
-      <SequenceView modulus={modulus} viewStart={viewStart} setViewStart={setViewStart} sequence={sequence} width={width} inColor={inColor} />
-
-      <TriangleView sequence={sequence} modulus={modulus} width={width} inColor={inColor} />
+      <TriangleView sequence={sequence} colorModulus={colorModulus} width={width} inColor={inColor} />
     </>
   );
 }

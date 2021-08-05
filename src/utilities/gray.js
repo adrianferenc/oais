@@ -1,10 +1,10 @@
 import rainbow from "./rainbow.js";
 
 const gray1 = [170,170,170];
-const gray2 = [187,187,187];
-const gray3 = [204,204,204];
-const gray4 = [221,221,221];
-const gray5 = [238,238,238];
+const gray2 = [190,190,190];
+const gray3 = [210,210,210];
+const gray4 = [230,230,230];
+const gray5 = [250,250,250];
 
 const grays = [gray1,gray2,gray3,gray4,gray5, gray4, gray3, gray2, gray1];
 

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function GraphController({ memoizedHandleGraphChange, handleGraphChange, setShowGraph }) {
+export default function GraphController({ memoizedHandleGraphChange, setShowGraph }) {
     const [graphType, setGraphType] = useState(null);
 
     function inter(evt) {

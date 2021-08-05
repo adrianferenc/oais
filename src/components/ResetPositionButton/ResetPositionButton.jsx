@@ -7,12 +7,10 @@ export default function ResetPositionButton({ viewStart, setViewStart }) {
   }
 
   return (
-    <>
       <div>
         <form onSubmit={handleViewSubmit}>
           <button type="submit">Reset</button>
         </form>
       </div>
-    </>
   );
 }

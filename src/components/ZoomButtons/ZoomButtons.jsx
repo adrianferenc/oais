@@ -15,6 +15,7 @@ export default function ZoomButtons({ width, setWidth }) {
   return (
     <>
       <div className="zoom-buttons">
+        <div style={{paddingRight:'10px'}}>Zoom: </div>
         <form onSubmit={(evt) => handleZoomSubmit(evt, "minus")}>
           <button type="submit">-</button>
         </form>

@@ -17,9 +17,7 @@ export default function RenameFavoriteButton({ sequence, setUser }) {
 
   async function handleRename(evt) {
     evt.preventDefault();
-    console.log(newName)
     const updatedUser = await changeFavorite(sequence.sequenceId, "add", { sequenceName: newName });
-    console.log(updatedUser)
     setClicked(false);
     setNewName('');
     setUser(updatedUser);

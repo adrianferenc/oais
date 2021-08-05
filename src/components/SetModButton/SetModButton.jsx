@@ -20,14 +20,12 @@ export default function SetModButton({ modulus, setModulus, sequence }) {
   }
 
   return (
-    <>
+    <div className='color-mod-form'>
       <form onSubmit={handleMod}>
-        <input type="number" name='modulus' placeholder={modulus} value={newMod} onChange={handleChange} required />
-        <button disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">Change Modulus</button>
+        <input type="number" name='modulus' className = 'modulus-textbox' placeholder={modulus} value={newMod} onChange={handleChange} required />
+        <button className='set-change' disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">{modulus === null ? `Set` : `Change`} Color Mod</button>
       </form>
-      <form onSubmit={removeMod}>
-        <button disabled={!modulus} type="submit">Remove Modulus</button>
-      </form>
-    </>
+      <button disabled={!modulus} onClick={removeMod}>Remove Mod</button>
+    </div>
   );
 }
