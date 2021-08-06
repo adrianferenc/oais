@@ -25,9 +25,9 @@ export default function Profile({ user, setUser, setSequence }) {
         {user.favorites.map((sequence, idx) => {
           return (
             <div className='favorite' key={idx}>
-              <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.sequenceName}</Link>
+              <Link to="/#" onClick={() => getSequence(sequence.sequenceId)}> {sequence.options.sequenceName}</Link>
               <div className='favorite-buttons'>
-                <RenameFavoriteButton sequence={sequence} setUser={setUser} />
+                <RenameFavoriteButton user = {user} sequence={sequence} setUser={setUser} />
                 <div className='spacer' />
                 <DeleteFavoriteButton sequenceId={sequence.sequenceId} setUser={setUser} />
               </div>

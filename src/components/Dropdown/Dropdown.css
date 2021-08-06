@@ -40,13 +40,15 @@
 
 .dropdown-option-box {
   width: 100%;
-  border: 1pt solid rgb(310, 310, 310);
+  border: 2pt solid rgb(310, 310, 310);
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   min-width: fit-content;
+  overflow: hidden;
+  min-width: 80px;
 }
 
 .open-button {

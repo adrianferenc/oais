@@ -36,7 +36,8 @@ export default function App() {
     sequence: [],
     options: {
       viewStart: 0,
-      width: width
+      width: width,
+      sequenceName: ''
     },
   });
 
@@ -48,7 +49,7 @@ export default function App() {
           <Route exact path="/">
             
             
-            {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} graphSize={graphSize} /> : <About setSequence={setSequence} />}
+            {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} graphSize={graphSize} /> : <About user={user} setSequence={setSequence} />}
           </Route>
 
           <Route exact path="/profile">

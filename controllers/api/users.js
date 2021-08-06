@@ -52,12 +52,14 @@ async function update(req, res) {
     );
     if (req.body.method === "add") {
       const newFavorite = { sequenceId: req.body.sequenceId };
-      newFavorite.sequenceName =
-        req.body.options && req.body.options.sequenceName
-          ? req.body.options.sequenceName
-          : req.body.sequenceId;
+      
+      newFavorite.options = {
+        sequenceName:
+          req.body.options && req.body.options.sequenceName
+            ? req.body.options.sequenceName
+            : req.body.sequenceId,
+      };
       if (idx === -1) {
-        
         user.favorites.push(newFavorite);
       } else {
         user.favorites[idx] = newFavorite;
@@ -67,6 +69,7 @@ async function update(req, res) {
     }
     await user.save();
     const token = createJWT(user);
+    // console.log(user.favorites)
     res.json(token);
   } catch {
     res.status(400).json("Favorite Not Saved");

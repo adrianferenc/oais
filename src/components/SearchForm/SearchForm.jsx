@@ -24,7 +24,7 @@ export default function SearchForm({ width, setSequence }) {
         sequence: [],
         options: {
           viewStart: 0,
-          width: width
+          width: width,
         },
       })
     }

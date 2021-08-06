@@ -2,11 +2,14 @@ import { Link, useHistory } from "react-router-dom";
 import { searchResult } from '../../utilities/sequences-api';
 import './About.css'
 
-export default function About({ setSequence }) {
+export default function About({ user, setSequence }) {
     const history = useHistory();
+
+console.log(user);
 
     async function getSequence(query) {
         const search = await searchResult(query.padStart(6, "0"));
+        console.log(user);
         setSequence({ sequenceId: query, sequence: search, options: { sequenceName: `A${query.padStart(6, "0")}` } })
         reroute();
     }
@@ -28,7 +31,7 @@ export default function About({ setSequence }) {
             
             <p>To explore the Lucas numbers in the <span className = "oais-color">OAIS</span>, search 32 in the search bar or, better yet, just <Link to="/#" onClick={() => getSequence('32')}> <strong>Click Here</strong></Link></p>
 
-            <p>The Atlas offers exploration of a sequence by allowing you to view a sequence dynamically using the dropdown toolbar. A gradient is applied to the sequence, which can be viewed as a list or a triangular array. A modulus can be applied, both to the numbers themselves and to the coloring. There are also dynamic graphs that show the growth of a sequence.</p>
+            <p>The <span className = "oais-color">OAIS</span> offers exploration of a sequence by allowing you to view a sequence dynamically using the dropdown toolbar. A gradient is applied to the sequence, which can be viewed as a list or a triangular array. A modulus can be applied, both to the numbers themselves and to the coloring. There are also dynamic graphs that show the growth of a sequence.</p>
         </div>
     )
 }
