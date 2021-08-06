@@ -16,27 +16,35 @@ The OAIS offers exploration of a sequence by allowing you to view a sequence dyn
 
 ---
 
-The App in action:
+## The App In Action
 
-SCREENSHOTS
+![About Page](./public/screenshots/AboutPage.png "About Page")
 
-1. ABOUT PAGE
-2. LOGIN/SIGNIN PAGE
-3. DROPDOWN
-   4 EQUENCE VIEW
-4. TRIANGLE VIEW
-5. GRAPH VIEW
-6. PROFILE
+![Sign Up Page](./public/screenshots/SignUpPage.png "Sign Up Page")
+
+![Dropdown](./public/screenshots/Dropdown.png "Dropdown")
+
+![Sequence And Triangle](./public/screenshots/SequenceAndTriangle.png "Sequence And Triangle")
+
+![Graph](./public/screenshots/Graph.png "Graph")
+
+![ProfilePage](./public/screenshots/ProfilePage.png "Profile Page")
 
 ## Technologies Used:
 
 HTML, CSS, Javascript, Mongoose, Express, React, Node.js, Axios, Bcrypt, Plotly.js. Deployed with Heroku.
 
-### Getting Started:
+## Getting Started:
 
 Check out the OAIS [here](https://online-atlas-integer-sequences.herokuapp.com/signup). The production Trello can be viewed [here](https://trello.com/b/nmh4WFyH/oais).
 
+## Future Improvement/Enhancements
 
-future improvement/enhancements
+- Renaming in the profile page does not persist after logging out. However, favorited sequences do.
+- Add further styling, e.g. borders
+- Fix overlap issues for sequence view and graph view vis a vis the navbar
+- Standardize the sequence id so it is always saved as A######.
+- Bundle similar states into more managable object states.
+- Have the number of chevrons change dynamically based on the width of a chevron (and ideally the width of the window).
 
 Note: The favicon's font is DM Mono Bold.
