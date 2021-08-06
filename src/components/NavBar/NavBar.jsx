@@ -20,7 +20,7 @@ export default function NavBar({ user, setUser, sequence, setSequence, width }) 
                     <div className="spacer" />
                     <div className='navbar-items'>
                         <ul>
-                            <li><SearchForm sequence={sequence} setSequence={setSequence} width={width}/></li>
+                            <li><SearchForm sequence={sequence} setSequence={setSequence} width={width} /></li>
                             {user ?
                                 <div className='navbar-links'>
                                     <li>Hello {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</li>
@@ -28,7 +28,9 @@ export default function NavBar({ user, setUser, sequence, setSequence, width }) 
                                     <li><Link to="" onClick={handleLogOut}>Log Out</Link></li>
                                 </div>
                                 :
-                                <li><Link to="/signup">Sign Up/Login</Link></li>
+                                <div className='navbar-links'>
+                                    <li><Link to="/signup">Sign Up/Login</Link></li>
+                                </div>
                             }
                         </ul>
                     </div>

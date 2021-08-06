@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { signUp } from '../../utilities/users-service';
+import './SignUpForm.css'
 
 export default function SignUpForm({ setUser }) {
     const [signUpData, setSignUpData] = useState({
@@ -38,7 +39,7 @@ export default function SignUpForm({ setUser }) {
     return (
         <div>
             <div className="form-container">
-                <form autoComplete="off" onSubmit={handleSubmit}>
+                <form className='signup-form' autoComplete="off" onSubmit={handleSubmit}>
                     <label>Name</label>
                     <input type="text" name="name" value={signUpData.name} onChange={handleChange} required />
                     <label>Email</label>
@@ -47,7 +48,7 @@ export default function SignUpForm({ setUser }) {
                     <input type="password" name="password" value={signUpData.password} onChange={handleChange} required />
                     <label>Confirm</label>
                     <input type="password" name="confirm" value={signUpData.confirm} onChange={handleChange} required />
-                    <button type="submit" disabled={signUpData.password !== signUpData.confirm}>SIGN UP</button>
+                    <button className = 'signup-button' type="submit" disabled={signUpData.password !== signUpData.confirm}>SIGN UP</button>
                 </form>
             </div>
             <p className="error-message">&nbsp;{signUpData.error}</p>

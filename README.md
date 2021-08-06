@@ -34,7 +34,7 @@ HTML, CSS, Javascript, Mongoose, Express, React, Node.js, Axios, Bcrypt, Plotly.
 
 ### Getting Started:
 
-Check out the OAIS [here](). The production Trello can be viewed [here](https://trello.com/b/nmh4WFyH/oais).
+Check out the OAIS [here](https://online-atlas-integer-sequences.herokuapp.com/signup). The production Trello can be viewed [here](https://trello.com/b/nmh4WFyH/oais).
 
 
 future improvement/enhancements

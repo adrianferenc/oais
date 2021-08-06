@@ -1,10 +1,10 @@
-.login-form {
+.signup-form {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-.login-button {
+.signup-button {
   display: flex;
   align-items: center;
   justify-content: center;
