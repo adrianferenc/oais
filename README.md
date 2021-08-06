@@ -4,7 +4,7 @@ The Online Atlas of Integer Sequences (OAIS) is a love letter to Neil Sloane's [
 
 While an amazing repository of information, the visual functionality of the OEIS leaves something to be desired. That is where the Online Atlas of Integer Sequences comes in.
 
-Each sequence in the OEIS has a sequence ID of the form "A######". To use the OAIS, type any sequence ID into the search box (you may omit the A and leading 0s if you like).
+Each sequence in the OEIS has a sequence ID of the form "A######". To use the OAIS, type any sequence ID into the search box (the user may omit the A and leading 0s if they like).
 
 An example of a sequence in the OEIS is the [Lucas numbers, sequence ID A000032](http://oeis.org/A000032). The first few terms are:
 
@@ -12,7 +12,9 @@ An example of a sequence in the OEIS is the [Lucas numbers, sequence ID A000032]
 
 To explore the Lucas numbers in the OAIS, search 32 in the search bar.
 
-The OAIS offers exploration of a sequence by allowing you to view a sequence dynamically using the dropdown toolbar. A gradient is applied to the sequence, which can be viewed as a list or a triangular array. A modulus can be applied, both to the numbers themselves and to the coloring. There are also dynamic graphs that show the growth of a sequence.
+The OAIS offers exploration of a sequence by allowing the user to view a sequence dynamically using the dropdown toolbar. A gradient is applied to the sequence, which can be viewed as a list or a triangular array. A modulus can be applied, both to the numbers themselves and to the coloring. There are also dynamic graphs that show the growth of a sequence.
+
+The app has token-based user authentication to save favorite sequences.
 
 ---
 

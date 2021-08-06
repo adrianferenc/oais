@@ -41,10 +41,7 @@ export default function Dropdown({ sequence, dropdownOpen, setDropdownOpen, numb
                         <div><button onClick={() => setShowGraph(!showGraph)}>{showGraph ? `Hide` : `Show`} Graph</button></div>
                         <div><GraphSizeButtons graphSize={graphSize} setGraphSize={setGraphSize} /></div>
                     </div>
-
-
                 </div>
-
             </div>
         </div>
 

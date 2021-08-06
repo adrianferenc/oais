@@ -47,8 +47,6 @@ export default function App() {
       <div className="main-page">
         <Switch>
           <Route exact path="/">
-            
-            
             {sequence.sequenceId ? <SequencePage sequence={sequence} setSequence={setSequence} user={user} setUser={setUser} width={width} inColor={inColor} numberModulus={numberModulus} colorModulus={colorModulus} showSequence={showSequence} showTriangle={showTriangle} showGraph={showGraph} setShowGraph={setShowGraph} showIndex={showIndex} graphSize={graphSize} /> : <About user={user} setSequence={setSequence} />}
           </Route>
 
