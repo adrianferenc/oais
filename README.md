@@ -34,7 +34,7 @@ The app has token-based user authentication to save favorite sequences.
 
 ## Technologies Used:
 
-HTML, CSS, Javascript, Mongoose, Express, React, Node.js, Axios, Bcrypt, Plotly.js. Deployed with Heroku.
+HTML, CSS, Javascript, Mongoose/MongoDB, Express, React, Node.js, Axios, Bcrypt, Plotly.js. Deployed with Heroku.
 
 ## Getting Started:
 
@@ -43,7 +43,8 @@ Check out the OAIS [here](https://online-atlas-integer-sequences.herokuapp.com/s
 ## Future Improvement/Enhancements
 
 - Renaming in the profile page does not persist after logging out. However, favorited sequences do.
-- Add further styling, e.g. borders
+- Add an "Explain Like I'm Five" page with pop-up windows that explain each part of the page.
+- Add further styling, e.g. borders/ Redo the styling with Bulma or Bootstrap
 - Fix overlap issues for sequence view and graph view vis a vis the navbar
 - Standardize the sequence id so it is always saved as A######.
 - Bundle similar states into more managable object states.
