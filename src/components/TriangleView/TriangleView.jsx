@@ -12,7 +12,7 @@ export default function TriangleView({ colorModulus, numberModulus, sequence, wi
     for (let j = 0; j <= i; j++) {
       rowArray.push(i * (i + 1) / 2 + j);
     }
-    triangleArray.push(rowArray.slice(10*i, 10*(i+1));
+    triangleArray.push(rowArray.slice(10*i, 10*(i+1)));
   }
   return (
     !!sequence.sequence.length &&
