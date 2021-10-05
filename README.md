@@ -38,7 +38,7 @@ HTML, CSS, Javascript, Mongoose/MongoDB, Express, React, Node.js, Axios, Bcrypt,
 
 ## Getting Started:
 
-Check out the OAIS [here](https://online-atlas-integer-sequences.herokuapp.com/signup). The production Trello can be viewed [here](https://trello.com/b/nmh4WFyH/oais).
+Check out the OAIS [here](https://online-atlas-integer-sequences.herokuapp.com). The production Trello can be viewed [here](https://trello.com/b/nmh4WFyH/oais).
 
 ## Future Improvement/Enhancements
 
