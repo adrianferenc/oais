@@ -8,7 +8,6 @@ import Profile from "../Profile/Profile";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import About from "../../components/About/About";
 
-
 export default function App() {
   const [user, setUser] = useState(getUser());
 

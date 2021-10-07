@@ -79,7 +79,7 @@ export default function GraphView({ showGraph, setShowGraph, sequence, graphSize
                     <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
                 </Col>
                 <Col>
-                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} setGraphEnd={setGraphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
                 </Col>
             </Row>
         </Container>

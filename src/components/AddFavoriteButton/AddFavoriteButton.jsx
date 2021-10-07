@@ -1,6 +1,5 @@
-import { useState } from "react";
 import { changeFavorite } from '../../utilities/users-service';
-import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 // import './AddFavoriteButton.css'
 
 export default function AddFavoriteButton({ sequence, user, setUser }) {
@@ -10,7 +9,7 @@ export default function AddFavoriteButton({ sequence, user, setUser }) {
     setUser(updatedUser);
   }
 
-  return (    
-      <Button size="sm" disabled = {user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId)} onClick={handleAddFavorite} >{user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId) ? 'Sequence Already Added To Favorites' : 'Add Sequence to Favorites'}</Button>
+  return (
+    <Button size="sm" disabled={user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId)} onClick={handleAddFavorite} >{user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId) ? 'Sequence Already Added To Favorites' : 'Add Sequence to Favorites'}</Button>
   );
 }

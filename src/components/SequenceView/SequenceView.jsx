@@ -1,10 +1,9 @@
-import MovementButton from '../../components/MovementButton/MovementButton'
-import ResetPositionButton from '../../components/ResetPositionButton/ResetPositionButton'
+import SetIndex from '../SetIndex/SetIndex'
 import colorizer from '../../utilities/color'
 import grayizer from '../../utilities/gray'
 import './SequenceView.css';
-import { useRef, useEffect, useState, createRef } from 'react';
-import { Container, ButtonGroup } from "react-bootstrap";
+import { useEffect, useState, createRef } from 'react';
+import { Container } from "react-bootstrap";
 
 export default function SequenceView({ showIndex, numberModulus, colorModulus, viewStart, setViewStart, sequence, width, inColor }) {
   const [elRefs, setElRefs] = useState([]);
@@ -13,14 +12,13 @@ export default function SequenceView({ showIndex, numberModulus, colorModulus, v
       Array(sequence.sequence.length).fill().map((_, i) => elRefs[i] || createRef())
     ));
   }, [sequence.sequence]);
-  
+
   const onClick = (i) => {
-    elRefs[i].current.scrollIntoView({inline: 'start', behavior: 'smooth'});
+    elRefs[i].current.scrollIntoView({ inline: 'start', block: "nearest", behavior: 'smooth' });
   }
 
   return (
     <Container className="sequence-view">
-      <button onClick = {()=> onClick(viewStart)}> test </button>
       <Container className='d-flex justify-content-start' id='sequence' style={{ 'overflowX': 'auto' }}>
         {sequence.sequence.map((x, idx) => {
           let color = inColor ? colorizer(sequence.sequence, x, idx, colorModulus) : grayizer(sequence.sequence, x, idx, colorModulus);
@@ -34,11 +32,9 @@ export default function SequenceView({ showIndex, numberModulus, colorModulus, v
           )
         })}
       </Container>
-      <ButtonGroup size="sm">
-        <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'left'} />
-        <ResetPositionButton setViewStart={setViewStart} />
-        <MovementButton viewStart={viewStart} setViewStart={setViewStart} direction={'right'} />
-      </ButtonGroup>
+      <Container className="d-flex justify-content-center">
+        <SetIndex viewStart={viewStart} onClick={onClick} />
+      </Container>
     </Container >
   );
 }

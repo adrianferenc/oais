@@ -1,7 +1,6 @@
 // import './GraphBoundaryButton.css'
 import { Button, ButtonGroup, Form, Row } from "react-bootstrap";
 
-
 export default function GraphBoundaryButton({ type, dataFormatter, setData, graphStart, graphEnd, boundarySetter, boundary }) {
     const newBoundary = boundary === 'Start' ? graphStart : graphEnd;
 
@@ -15,7 +14,6 @@ export default function GraphBoundaryButton({ type, dataFormatter, setData, grap
     }
 
     return (
-
         <Form>
             <Form.Group>
                 <Row>

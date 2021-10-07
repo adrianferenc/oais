@@ -1,5 +1,4 @@
 // import './Sequence.css';
-import { Link } from "react-router-dom";
 import AddFavoriteButton from '../../components/AddFavoriteButton/AddFavoriteButton';
 import SequenceView from '../SequenceView/SequenceView';
 import TriangleView from '../TriangleView/TriangleView';

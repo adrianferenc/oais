@@ -8,12 +8,10 @@ export default function LogIn({ setUser }) {
     email: '',
     password: ''
   });
-  const [error, setError] = useState('');
   let history = useHistory();
 
   function handleChange(evt) {
     setCredentials({ ...credentials, [evt.target.name]: evt.target.value });
-    setError('');
   }
 
   async function handleSubmit(evt) {
@@ -23,7 +21,6 @@ export default function LogIn({ setUser }) {
       setUser(user);
       history.push('/profile');
     } catch {
-      setError('Log In Failed - Try Again');
     }
   }
 

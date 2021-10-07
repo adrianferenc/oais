@@ -1,5 +1,5 @@
 // import './ZoomSettings.css'
-import { Button, ButtonGroup, InputGroup, FormControl, Card } from "react-bootstrap";
+import { Button, ButtonGroup, Card } from "react-bootstrap";
 
 export default function ZoomSettings({ sequence, width, setWidth }) {
 

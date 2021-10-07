@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { checkToken } from '../../utilities/users-service';
 import { searchResult } from '../../utilities/sequences-api';
 import DeleteFavoriteButton from '../../components/DeleteFavoriteButton/DeleteFavoriteButton'
 import RenameFavoriteButton from "../../components/RenameFavoriteButton/RenameFavoriteButton";
@@ -7,10 +6,6 @@ import { Card, ListGroup, ButtonGroup } from "react-bootstrap";
 // import './Profile.css'
 
 export default function Profile({ user, setUser, setSequence }) {
-
-  async function handleCheckToken() {
-    const dateExp = await checkToken()
-  }
 
   async function getSequence(query) {
     const search = await searchResult(query.padStart(6, "0"));

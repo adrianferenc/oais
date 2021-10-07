@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Offcanvas } from 'react-bootstrap'
+import { Offcanvas, Button } from 'react-bootstrap'
 
-export function Example() {
+export default function Example() {
     const [show, setShow] = useState(false);
 
     const handleClose = () => setShow(false);

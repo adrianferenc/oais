@@ -1,7 +1,7 @@
 
 import SearchForm from '../../components/SearchForm/SearchForm'
 import * as usersService from '../../utilities/users-service';
-import { Nav, Navbar, Container, Button, Modal, CardGroup, Col } from "react-bootstrap";
+import { Nav, Navbar, Container, Button, Modal, CardGroup, Col, Row } from "react-bootstrap";
 
 
 import ZoomSettings from '../../components/ZoomSettings/ZoomSettings';
@@ -25,16 +25,18 @@ export default function NavBar({ user, setUser, sequence, setSequence, width, dr
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg">
-                <Container>
-                    <Navbar.Brand href="/">OAIS</Navbar.Brand>
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Button disabled={sequence.sequenceId === ''} onClick={() => setDropdownOpen(!dropdownOpen)}>Settings</Button>
-                    </Navbar.Collapse>
-                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+            <Navbar bg="dark" variant="dark" expand="lg" >
+                <Row className="justify-content-between">
+
+                    <Col className="justify-content-start">
+                        <Navbar.Brand href="/">OAIS</Navbar.Brand>
+                        <Button size="sm" disabled={sequence.sequenceId === ''} onClick={() => setDropdownOpen(!dropdownOpen)}>Settings</Button>
+                    </Col>
+                    
+                    <Col>
                         <SearchForm sequence={sequence} setSequence={setSequence} width={width} />
-                        {user ?
+                        {/* <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
+                            {user ?
                             <Nav className="me-auto">
                                 <Navbar.Text>Hello {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</Navbar.Text>
                                 <Nav.Link href="/profile">View Profile</Nav.Link>
@@ -45,8 +47,9 @@ export default function NavBar({ user, setUser, sequence, setSequence, width, dr
                                 <Nav.Link href="/signup">Sign Up/Login</Nav.Link>
                             </Nav>
                         }
-                    </Navbar.Collapse >
-                </Container >
+                        </Navbar.Collapse > */}
+                    </Col>
+                </Row >
             </Navbar >
 
             <Modal show={dropdownOpen} onHide={handleClose} size="xl">
