@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
-import './GraphController.css'
+import { Button, ButtonGroup, OverlayTrigger, Tooltip } from "react-bootstrap";
 
 export default function GraphController({ memoizedHandleGraphChange, setShowGraph }) {
     const [graphType, setGraphType] = useState(null);
-
+    
     function inter(evt) {
         setGraphType(evt);
         memoizedHandleGraphChange(evt);
@@ -16,15 +16,20 @@ export default function GraphController({ memoizedHandleGraphChange, setShowGrap
     )
 
     return (
-        <div className = 'controller'>
-            <div className="controller-buttons">
-                <button value='scatter' onClick={inter}>Scatter</button>
-                <button value='log' onClick={inter}>Log</button>
-                <button className="histogram-button" value='histogram' onClick={inter}>Histogram</button>
-                <button onClick={() => setShowGraph(false)}>Hide Graph</button>
-            </div>
-            <div className = 'histogram-note'>Note: Histogram may take a long time to load</div>
-        </div>
+        <ButtonGroup size="sm" className="controller-buttons">
+            <Button value='scatter' onClick={inter}>Scatter</Button>
+            <Button value='log' onClick={inter}>Log</Button>
+            <OverlayTrigger
+                placement="top"
+                delay={{ show: 250, hide: 400 }}
+                overlay={<Tooltip id="button-tooltip" >
+                    Histogram may take a while to load
+                </Tooltip>}
+            >
+                <Button className="histogram-button" value='histogram' onClick={inter}>Histogram</Button>
+            </OverlayTrigger>
+            <Button variant="danger" onClick={() => setShowGraph(false)}>Hide Graph</Button>
+        </ButtonGroup>
     )
 
 }

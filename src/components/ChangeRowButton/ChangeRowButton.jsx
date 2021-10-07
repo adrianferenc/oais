@@ -1,4 +1,4 @@
-import './ChangeRowButton.css'
+// import './ChangeRowButton.css'
 
 export default function ChangeRowButton({ rows, setRows }) {
   async function handleViewSubmit(evt) {

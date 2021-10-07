@@ -1,5 +1,6 @@
 import { changeFavorite } from '../../utilities/users-service';
-import './DeleteFavoriteButton.css'
+import { Button } from "react-bootstrap";
+// import './DeleteFavoriteButton.css'
 
 export default function DeleteFavoriteButton({ sequenceId, setUser }) {
 
@@ -10,10 +11,6 @@ export default function DeleteFavoriteButton({ sequenceId, setUser }) {
   }
 
   return (
-    <div className="delete-favorite-button">
-      <form onSubmit={handleDeleteFavorite} >
-        <button type="submit" >Remove Sequence from Favorites</button>
-      </form>
-    </div>
+        <Button variant="danger" onClick={handleDeleteFavorite} size="sm">Remove Sequence from Favorites</Button>
   );
 }

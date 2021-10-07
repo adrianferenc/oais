@@ -1,16 +1,24 @@
 import SignUpForm from '../../components/SignUpForm/SignUpForm'
 import LoginForm from "../../components/LoginForm/LoginForm"
-import './AuthPage.css'
+import {Card, Nav} from "react-bootstrap";
 
 export default function AuthPage({ setUser, auth, setAuth }) {
   return (
-    <div className="AuthPage">
-      <h1>{auth ? 'Sign Up' : 'Login'}</h1>
-      <div className='login-signup-form'>
-        {auth && <SignUpForm setUser={setUser} />}
-        {auth || <LoginForm setUser={setUser} />}
-      </div>
-      <button className='login-signup-button' onClick={() => setAuth(!auth)}> {`${auth ? 'Login' : 'Sign Up'} Instead`} </button>
-    </div>
+    <Card>
+  <Card.Header>
+    <Nav fill variant="tabs" defaultActiveKey="#signup">
+      <Nav.Item>
+        <Nav.Link href="#signup" onClick={() => setAuth(true)}>Sign Up</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="#login" onClick={() => setAuth(false)}>Log In</Nav.Link>
+      </Nav.Item>
+    </Nav>
+  </Card.Header>
+  <Card.Body>
+      {auth? <SignUpForm setUser={setUser} />: <LoginForm setUser={setUser} />}
+  </Card.Body>
+</Card>
+
   );
 }

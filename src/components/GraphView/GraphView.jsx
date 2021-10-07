@@ -2,7 +2,8 @@ import { useState, useCallback } from 'react';
 import Graph from '../Graph/Graph'
 import GraphController from '../GraphController/GraphController';
 import GraphBoundaryButton from '../GraphBoundaryButton/GraphBoundaryButton';
-import './GraphView.css'
+import { Container, Row, Col } from "react-bootstrap";
+// import './GraphView.css'
 
 export default function GraphView({ showGraph, setShowGraph, sequence, graphSize }) {
     const [graphStart, setGraphStart] = useState(0);
@@ -45,14 +46,12 @@ export default function GraphView({ showGraph, setShowGraph, sequence, graphSize
                 },
             ];
         } else if (type === 'histogram') {
-            // if (Math.max(...sequence.sequence.slice(graphStart, graphEnd + 1)) - Math.min(...sequence.sequence.slice(graphStart, graphEnd + 1)) < 100000) {
-                return [{
-                    x: sequence.sequence.slice(graphStart, graphEnd),
-                    xbins: { size: 1 },
-                    type: 'histogram',
-                    name: 'Histogram'
-                }];
-            // }
+            return [{
+                x: sequence.sequence.slice(graphStart, graphEnd),
+                xbins: { size: 1 },
+                type: 'histogram',
+                name: 'Histogram'
+            }];
         }
     }
 
@@ -67,25 +66,22 @@ export default function GraphView({ showGraph, setShowGraph, sequence, graphSize
     }
 
     return (
-        showGraph && <div>
-            <div className="graph-view">
-                <div>
-                    <div className='graph-controller'>
-                        <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
-                    </div>
-                    <div className="graph">
-                    <Graph data={data} graphSize={graphSize}/>
-                    </div>
-                    <div className='boundary-button-group'>
-                        <div className='boundary-button'>
-                            <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
-                        </div>
-                        <div className='boundary-button'>
-                            <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        showGraph &&
+        <Container className='text-center'>
+            <Container className='graph-controller'>
+                <GraphController memoizedHandleGraphChange={memoizedHandleGraphChange} handleGraphChange={handleGraphChange} setShowGraph={setShowGraph} />
+            </Container>
+            <Container className="graph">
+                <Graph data={data} graphSize={graphSize} />
+            </Container>
+            <Row>
+                <Col>
+                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphStart} boundary={'Start'} />
+                </Col>
+                <Col>
+                    <GraphBoundaryButton type={type} dataFormatter={dataFormatter} data={data} setData={setData} graphStart={graphStart} graphEnd={graphEnd} boundarySetter={setGraphEnd} boundary={'End'} />
+                </Col>
+            </Row>
+        </Container>
     )
 }

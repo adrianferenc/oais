@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { changeFavorite } from '../../utilities/users-service';
-import './RenameFavoriteButton.css'
+import { Button, InputGroup, FormControl, ButtonGroup } from "react-bootstrap";
+// import './RenameFavoriteButton.css'
 
 export default function RenameFavoriteButton({ sequence, setUser }) {
   const [clicked, setClicked] = useState(false)
@@ -26,11 +27,18 @@ export default function RenameFavoriteButton({ sequence, setUser }) {
   return (
     <>
       {clicked ?
-        <form onSubmit={handleRename}>
-          <input type="text" style={{width:'auto'}} name='renameValue' placeholder={sequence.options.sequenceName} value={newName} onChange={handleChange} required />
-          <button type="submit">Change name</button>
-          <button onClick={() => setClicked(false)}>Cancel</button>
-        </form> : <button onClick={handeRenameButton}>Rename Sequence</button>
+        <InputGroup >
+          <FormControl
+            placeholder={sequence.options.sequenceName}
+            value={newName}
+            onChange={handleChange} required
+            name='renameValue'
+          />
+          <ButtonGroup size="sm">
+            <Button onClick={handleRename}>Change name</Button>
+            <Button onClick={() => setClicked(false)}>Cancel</Button>
+          </ButtonGroup>
+        </InputGroup> : <Button size="sm" onClick={handeRenameButton}>Rename Sequence</Button>
       }</>
   );
 }

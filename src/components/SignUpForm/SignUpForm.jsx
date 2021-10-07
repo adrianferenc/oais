@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { signUp } from '../../utilities/users-service';
-import './SignUpForm.css'
+import { Form, Button } from "react-bootstrap";
 
 export default function SignUpForm({ setUser }) {
     const [signUpData, setSignUpData] = useState({
@@ -37,21 +37,30 @@ export default function SignUpForm({ setUser }) {
     };
 
     return (
-        <div>
-            <div className="form-container">
-                <form className='signup-form' autoComplete="off" onSubmit={handleSubmit}>
-                    <label>Name</label>
-                    <input type="text" name="name" value={signUpData.name} onChange={handleChange} required />
-                    <label>Email</label>
-                    <input type="email" name="email" value={signUpData.email} onChange={handleChange} required />
-                    <label>Password</label>
-                    <input type="password" name="password" value={signUpData.password} onChange={handleChange} required />
-                    <label>Confirm</label>
-                    <input type="password" name="confirm" value={signUpData.confirm} onChange={handleChange} required />
-                    <button className = 'signup-button' type="submit" disabled={signUpData.password !== signUpData.confirm}>SIGN UP</button>
-                </form>
-            </div>
-            <p className="error-message">&nbsp;{signUpData.error}</p>
-        </div>
+        <Form autoComplete="off" onSubmit={handleSubmit}>
+            <Form.Group className="mb-3">
+                <Form.Label>Name</Form.Label>
+                <Form.Control type="text" name="name" placeholder="Name" value={signUpData.name} onChange={handleChange} required />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" name="email" placeholder="Email" value={signUpData.email} onChange={handleChange} required />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Password" name="password" value={signUpData.password} onChange={handleChange} required />
+            </Form.Group>
+
+            <Form.Group className="mb-3">
+                <Form.Label>Confirm Password</Form.Label>
+                <Form.Control type="password" placeholder="Confirm Password" name="confirm" value={signUpData.confirm} onChange={handleChange} required />
+            </Form.Group>
+
+            <Button variant="primary" type="submit" disabled={signUpData.password !== signUpData.confirm}>
+                Sign Up
+            </Button>
+        </Form>
     );
 }

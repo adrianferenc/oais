@@ -8,6 +8,7 @@ import Profile from "../Profile/Profile";
 import Toolbar from "../../components/Toolbar/Toolbar";
 import About from "../../components/About/About";
 
+
 export default function App() {
   const [user, setUser] = useState(getUser());
 
@@ -44,6 +45,7 @@ export default function App() {
   return (
     <div className='app'>
       <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} graphSize={graphSize} setGraphSize={setGraphSize}/>
+  
       <div className="main-page">
         <Switch>
           <Route exact path="/">

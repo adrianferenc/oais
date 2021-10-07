@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { searchResult } from '../../utilities/sequences-api';
-import './SearchForm.css'
-
+import { Form, Button, Col, Row } from "react-bootstrap";
 
 export default function SearchForm({ width, setSequence }) {
   const [query, setQuery] = useState('');
@@ -11,7 +10,6 @@ export default function SearchForm({ width, setSequence }) {
   function handleChange(evt) {
     setQuery(evt.target.value);
   }
-
 
   async function handleSubmit(evt) {
     evt.preventDefault();
@@ -32,13 +30,15 @@ export default function SearchForm({ width, setSequence }) {
   }
 
   return (
-    <>
-      <div >
-        <form className="search-form" autoComplete="off" onSubmit={handleSubmit}>
-          <input type="text" name="search" value={query} placeholder="Try 45" onChange={handleChange} />
-          <button type="submit">SEARCH</button>
-        </form>
-      </div> 
-    </>
+    <Form autoComplete="off" onSubmit={handleSubmit}>
+      <Row className="d-flex align-items-end">
+        <Form.Group controlId="searchBar">
+          <Form.Control size="sm" type="text" name="search" value={query} placeholder="Try 45" onChange={handleChange} />
+        </Form.Group>
+        <Form.Group controlId="formButton">
+          <Button size="sm" type="submit">SEARCH</Button>
+        </Form.Group>
+      </Row>
+    </Form>
   );
 }

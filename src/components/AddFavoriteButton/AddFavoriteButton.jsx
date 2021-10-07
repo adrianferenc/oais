@@ -1,23 +1,16 @@
 import { useState } from "react";
 import { changeFavorite } from '../../utilities/users-service';
-import './AddFavoriteButton.css'
+import { Button, OverlayTrigger, Tooltip } from "react-bootstrap";
+// import './AddFavoriteButton.css'
 
 export default function AddFavoriteButton({ sequence, user, setUser }) {
-  const [userUpdated, setUserUpdated] = useState(false);
-
   async function handleAddFavorite(evt) {
     evt.preventDefault();
     const updatedUser = await changeFavorite(sequence.sequenceId, "add");
     setUser(updatedUser);
-    setUserUpdated(true);
   }
 
-  return (
-    <div className="add-favorite-button">
-      <form onSubmit={handleAddFavorite} >
-        <button type="submit" >Add Sequence to Favorites</button>
-      </form>
-      <p>{userUpdated && `Sequence added to favorites`}</p>
-    </div>
+  return (    
+      <Button size="sm" disabled = {user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId)} onClick={handleAddFavorite} >{user.favorites.map(sequence => sequence.sequenceId).includes(sequence.sequenceId) ? 'Sequence Already Added To Favorites' : 'Add Sequence to Favorites'}</Button>
   );
 }

@@ -1,6 +1,7 @@
-import './ResetPositionButton.css'
+// import './ResetPositionButton.css'
+import { Button } from "react-bootstrap";
 
-export default function ResetPositionButton({ viewStart, setViewStart }) {
+export default function ResetPositionButton({ setViewStart }) {
 
 
   async function handleViewSubmit(evt) {
@@ -9,10 +10,6 @@ export default function ResetPositionButton({ viewStart, setViewStart }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleViewSubmit}>
-        <button className='reset-button' type="submit">Reset</button>
-      </form>
-    </div>
+    <Button onClick={handleViewSubmit} >Reset</Button>
   );
 }

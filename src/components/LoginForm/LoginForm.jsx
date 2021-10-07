@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useHistory } from 'react-router';
 import { login } from '../../utilities/users-service';
-import './LoginForm.css'
+import { Form, Button } from "react-bootstrap";
 
 export default function LogIn({ setUser }) {
   const [credentials, setCredentials] = useState({
@@ -28,17 +28,21 @@ export default function LogIn({ setUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container" onSubmit={handleSubmit}>
-        <form className='login-form' autoComplete="off" >
-          <label>Email</label>
-          <input type="text" name="email" value={credentials.email} onChange={handleChange} required />
-          <label>Password</label>
-          <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-          <button className='login-button' type="submit">LOG IN</button>
-        </form>
-      </div>
-      <p className="error-message">&nbsp;{error}</p>
-    </div>
+    <Form autoComplete="off" onSubmit={handleSubmit}>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Email</Form.Label>
+        <Form.Control type="email" name="email" placeholder="Email" value={credentials.email} onChange={handleChange} required />
+      </Form.Group>
+
+      <Form.Group className="mb-3">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" name="password" value={credentials.password} onChange={handleChange} required />
+      </Form.Group>
+
+      <Button variant="primary" type="submit" >
+        Log In
+      </Button>
+    </Form>
   );
 }
