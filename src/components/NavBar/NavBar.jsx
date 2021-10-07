@@ -1,6 +1,6 @@
-
 import SearchForm from '../../components/SearchForm/SearchForm'
 import * as usersService from '../../utilities/users-service';
+import { useState } from "react";
 import { Nav, Navbar, Container, Button, Modal, CardGroup, Col, Row } from "react-bootstrap";
 
 
@@ -10,10 +10,9 @@ import ColorOptions from '../ColorOptions/ColorOptions';
 import GraphOptions from '../GraphOptions/GraphOptions';
 
 
-export default function NavBar({ user, setUser, sequence, setSequence, width, dropdownOpen, setDropdownOpen, setWidth, inColor, setInColor, numberModulus, setNumberModulus, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex, graphSize, setGraphSize
+export default function NavBar({ user, setUser, sequence, setSequence, width, setWidth, inColor, setInColor, numberModulus, setNumberModulus, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex, graphSize, setGraphSize}) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
-
-}) {
     function handleLogOut() {
         usersService.logOut();
         setUser(null);

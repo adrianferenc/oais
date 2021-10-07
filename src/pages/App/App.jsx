@@ -5,7 +5,7 @@ import { getUser } from '../../utilities/users-service'
 import AuthPage from "../AuthPage/AuthPage";
 import SequencePage from "../SequencePage/SequencePage"
 import Profile from "../Profile/Profile";
-import Toolbar from "../../components/Toolbar/Toolbar";
+import NavBar from "../../components/NavBar/NavBar";
 import About from "../../components/About/About";
 
 export default function App() {
@@ -43,7 +43,7 @@ export default function App() {
 
   return (
     <div className='app'>
-      <Toolbar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} graphSize={graphSize} setGraphSize={setGraphSize}/>
+      <NavBar user={user} setUser={setUser} sequence={sequence} setSequence={setSequence} width={width} setWidth={setWidth} inColor={inColor} setInColor={setInColor} numberModulus={numberModulus} setNumberModulus={setNumberModulus} colorModulus={colorModulus} setColorModulus={setColorModulus} showIndex={showIndex} setShowIndex={setShowIndex} showSequence={showSequence} setShowSequence={setShowSequence} showTriangle={showTriangle} setShowTriangle={setShowTriangle} showGraph={showGraph} setShowGraph={setShowGraph} graphSize={graphSize} setGraphSize={setGraphSize}/>
   
       <div className="main-page">
         <Switch>
