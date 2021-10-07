@@ -1,7 +1,6 @@
 import SearchForm from '../../components/SearchForm/SearchForm'
-import * as usersService from '../../utilities/users-service';
 import { useState } from "react";
-import { Nav, Navbar, Container, Button, Modal, CardGroup, Col, Row } from "react-bootstrap";
+import { Navbar, Button, Modal, CardGroup, Col, Row } from "react-bootstrap";
 
 
 import ZoomSettings from '../../components/ZoomSettings/ZoomSettings';
@@ -12,11 +11,6 @@ import GraphOptions from '../GraphOptions/GraphOptions';
 
 export default function NavBar({ user, setUser, sequence, setSequence, width, setWidth, inColor, setInColor, numberModulus, setNumberModulus, colorModulus, setColorModulus, showSequence, setShowSequence, showTriangle, setShowTriangle, showGraph, setShowGraph, showIndex, setShowIndex, graphSize, setGraphSize}) {
     const [dropdownOpen, setDropdownOpen] = useState(false);
-
-    function handleLogOut() {
-        usersService.logOut();
-        setUser(null);
-    }
 
     function handleClose() {
         setDropdownOpen(false);
@@ -34,19 +28,6 @@ export default function NavBar({ user, setUser, sequence, setSequence, width, se
                     
                     <Col>
                         <SearchForm sequence={sequence} setSequence={setSequence} width={width} />
-                        {/* <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-                            {user ?
-                            <Nav className="me-auto">
-                                <Navbar.Text>Hello {`${(user && user.name)[0].toUpperCase()}${(user && user.name).slice(1)}`}</Navbar.Text>
-                                <Nav.Link href="/profile">View Profile</Nav.Link>
-                                <Nav.Link href="/signup" onClick={handleLogOut}>Log Out</Nav.Link>
-                            </Nav>
-                            :
-                            <Nav className="me-auto">
-                                <Nav.Link href="/signup">Sign Up/Login</Nav.Link>
-                            </Nav>
-                        }
-                        </Navbar.Collapse > */}
                     </Col>
                 </Row >
             </Navbar >
