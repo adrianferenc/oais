@@ -1,4 +1,5 @@
-import './ChangeRowButton.css'
+// import './ChangeRowButton.css'
+import { Button, Container } from "react-bootstrap";
 
 export default function ChangeRowButton({ rows, setRows }) {
   async function handleViewSubmit(evt) {
@@ -11,9 +12,9 @@ export default function ChangeRowButton({ rows, setRows }) {
   }
 
   return (
-    <div className="change-row-buttons">
-      <button value="add" onClick={handleViewSubmit} >Add A Row</button>
-      <button value="remove" onClick={handleViewSubmit} >Remove A Row</button>
-    </div>
+    <Container>
+      <Button size="sm" value="add" onClick={handleViewSubmit} >Add A Row</Button>
+      <Button size="sm" value="remove" onClick={handleViewSubmit} >Remove A Row</Button>
+    </Container>
   );
 }

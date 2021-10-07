@@ -1,4 +1,5 @@
-import './GraphBoundaryButton.css'
+// import './GraphBoundaryButton.css'
+import { Button, ButtonGroup, Form, Row } from "react-bootstrap";
 
 export default function GraphBoundaryButton({ type, dataFormatter, setData, graphStart, graphEnd, boundarySetter, boundary }) {
     const newBoundary = boundary === 'Start' ? graphStart : graphEnd;
@@ -13,15 +14,19 @@ export default function GraphBoundaryButton({ type, dataFormatter, setData, grap
     }
 
     return (
-
-        <div className='graph-boundary-button'>
-            <div className="boundary-changer">
-                <button className="change-button" value="minus" onClick={handleChange}>-</button>
-                <div className='boundary-value'>{newBoundary}</div>
-                <button className="change-button" value="plus" onClick={handleChange}>+</button>
-            </div>
-            <h6 className="buttons-label">Graph {boundary === 'Start' ? `Starting` : 'Ending'} Point</h6>
-        </div>
-
+        <Form>
+            <Form.Group>
+                <Row>
+                    <ButtonGroup size="sm">
+                        <Button className="change-button" value="minus" onClick={handleChange}>-</Button>
+                        <div className='boundary-value'>{newBoundary}</div>
+                        <Button className="change-button" value="plus" onClick={handleChange}>+</Button>
+                    </ButtonGroup>
+                </Row>
+                <Row>
+                    <Form.Label>Graph {boundary === 'Start' ? `Starting` : 'Ending'} Point</Form.Label>
+                </Row>
+            </Form.Group>
+        </Form>
     )
 }

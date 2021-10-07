@@ -1,3 +1,5 @@
 .search-form {
   min-width: 19rem;
+  display:inline-block;
 }
+

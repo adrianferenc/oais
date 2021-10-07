@@ -5,11 +5,8 @@ import './About.css'
 export default function About({ user, setSequence }) {
     const history = useHistory();
 
-console.log(user);
-
     async function getSequence(query) {
         const search = await searchResult(query.padStart(6, "0"));
-        console.log(user);
         setSequence({ sequenceId: query, sequence: search, options: { sequenceName: `A${query.padStart(6, "0")}` } })
         reroute();
     }

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import colorizer from '../../utilities/color'
 import grayizer from '../../utilities/gray';
 import ChangeRowButton from '../ChangeRowButton/ChangeRowButton';
+import { Container } from "react-bootstrap";
 import './TriangleView.css';
 
 export default function TriangleView({ colorModulus, numberModulus, sequence, width, inColor }) {
@@ -12,16 +13,16 @@ export default function TriangleView({ colorModulus, numberModulus, sequence, wi
     for (let j = 0; j <= i; j++) {
       rowArray.push(i * (i + 1) / 2 + j);
     }
-    triangleArray.push(rowArray.slice(10*i, 10*(i+1)));
+    triangleArray.push(rowArray);
   }
   return (
     !!sequence.sequence.length &&
-    <div id="triangle">
+    <Container id="triangle">
 
       {triangleArray.map((row, idx) => {
         return (
 
-          <div key={idx} className="row" position="relative">
+          <Container key={idx} className="row" position="relative">
             {row.map(elt => {
               let color = inColor ? colorizer(sequence.sequence, sequence.sequence[elt], elt, 0, colorModulus) : grayizer(sequence.sequence, sequence.sequence[elt], elt, 0, colorModulus);
               return (
@@ -31,11 +32,11 @@ export default function TriangleView({ colorModulus, numberModulus, sequence, wi
                 </div>
               )
             })}
-          </div>
+          </Container>
         )
 
       })}
       <ChangeRowButton rows={rows} setRows={setRows} />
-    </div>
+    </Container>
   );
 }

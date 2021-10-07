@@ -1,4 +1,5 @@
-import './MovementButton.css'
+// import './MovementButton.css'
+import { Button } from "react-bootstrap";
 
 export default function MovementButton({ viewStart, setViewStart, direction }) {
   const label = direction === 'right' ? <>&#8594;</> : <>&#8592;</>;
@@ -10,8 +11,6 @@ export default function MovementButton({ viewStart, setViewStart, direction }) {
   }
 
   return (
-    <form onSubmit={handleViewSubmit} >
-      <button className="movement-button" type="submit" >{label}</button>
-    </form>
+    <Button onClick={handleViewSubmit} >{label}</Button>
   );
 }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import './SetModButton.css'
+import { Button, ButtonGroup, InputGroup, FormControl, Col } from "react-bootstrap";
+// import './SetModButton.css'
 
 export default function SetModButton({ modulus, setModulus, sequence, type }) {
   const [newMod, setNewMod] = useState('');
@@ -21,12 +22,20 @@ export default function SetModButton({ modulus, setModulus, sequence, type }) {
   }
 
   return (
-    <div className='mod-form'>
-      <form className = 'mod-set-block' onSubmit={handleMod}>
-        <input type="number" name='modulus' className='modulus-textbox' placeholder={modulus} value={newMod} onChange={handleChange} required />
-        <button className='set-change' disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} type="submit">{modulus === null ? `Set` : `Change`} {type} Mod</button>
-      </form>
-      <button className='remove' disabled={!modulus} onClick={removeMod}>Remove Mod</button>
-    </div>
+    <InputGroup>
+      <Col xs={1}>
+        <FormControl
+          placeholder={modulus}
+          value={newMod}
+          onChange={handleChange} required
+          aria-label="Recipient's username with two button addons"
+        />
+      </Col>
+      <ButtonGroup size="sm">
+        <Button disabled={newMod === modulus || sequence.sequenceId === '' || newMod <= 1 || newMod % 1 !== 0} onClick={handleMod} variant="secondary">{modulus === null ? `Set` : `Change`} {type} Mod</Button>
+        <Button disabled={!modulus} onClick={removeMod} variant="secondary">Remove Mod</Button>
+      </ButtonGroup>
+
+    </InputGroup>
   );
 }
