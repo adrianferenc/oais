@@ -23,7 +23,7 @@ export default function SetModButton({ modulus, setModulus, sequence, type }) {
 
   return (
     <InputGroup>
-      <Col xs={1}>
+      <Col xs={1} style={{marginRight:'1rem'}}>
         <FormControl
           placeholder={modulus}
           value={newMod}

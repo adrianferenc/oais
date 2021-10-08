@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, InputGroup, FormControl, Col, Container } from "react-bootstrap";
+import { Button, InputGroup, FormControl, Col } from "react-bootstrap";
 // import './SetModButton.css'
 
 export default function SetIndex({ onClick, length }) {

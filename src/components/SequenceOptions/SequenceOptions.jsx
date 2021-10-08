@@ -1,7 +1,7 @@
 import SetModButton from '../SetModButton/SetModButton';
 import { Button, ButtonGroup, InputGroup, Card, Row } from "react-bootstrap";
 
-export default function SequenceOptions({ sequence, showSequence, setShowSequence, showIndex, setShowIndex, showTriangle, setShowTriangle, numberModulus, setNumberModulus, setColorModulus }) {
+export default function SequenceOptions({ sequence, showSequence, setShowSequence, showIndex, setShowIndex, showTriangle, setShowTriangle, numberModulus, setNumberModulus, setColorModulus}) {
 
     return (
         <Card className="text-center d-flex justify-content-start">
@@ -14,7 +14,7 @@ export default function SequenceOptions({ sequence, showSequence, setShowSequenc
                             <Button onClick={() => { setShowIndex(!showIndex) }}>{showIndex ? `Hide` : `Show`} Index</Button>
                             <Button onClick={() => setShowTriangle(!showTriangle)}>{showTriangle ? `Hide` : `Show`} Triangle</Button>
                         </ButtonGroup>
-                    
+
                         <SetModButton sequence={sequence} modulus={numberModulus} setModulus={(x) => { setNumberModulus(x); setColorModulus(x) }} type={'Number'} />
                     </Row>
                 </InputGroup>

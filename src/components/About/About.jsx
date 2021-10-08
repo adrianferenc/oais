@@ -16,7 +16,7 @@ export default function About({ setSequence }) {
         history.push("/")
     }
     return (
-        <Container className='about-page'>
+        <Container className='about-page' style={{ marginTop: '7rem' }}>
             <p className="lead">The Online Atlas of Integer Sequences (OAIS) is a love letter to Neil Sloane's <a href="http://oeis.org/">Online Encyclopedia of Integer Sequences (OEIS)</a>. </p>
 
             <p className="lead">While an amazing repository of information, the visual functionality of the OEIS leaves something to be desired. That is where the Online Atlas of Integer Sequences comes in. </p>

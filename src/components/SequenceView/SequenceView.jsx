@@ -25,16 +25,16 @@ export default function SequenceView({ showIndex, numberModulus, colorModulus, s
           return (
             <Container key={idx} style={{ padding: '0' }}>
               <Container ref={elRefs[idx]} className="integer d-flex" style={{ display: 'inline-flex', padding: '0' }}>
-                <Col style={{ backgroundColor: color }} className="chevron-left" ></Col>
-                <Col style={{ backgroundColor: color, fontFamily: 'monospace' }} className="chevron" value={+x} ><p className="number">{numberModulus === null ? x : (+x % numberModulus)}</p></Col>
-                <Col style={{ backgroundColor: color, width: '2rem' }} className="chevron-right" ></Col>
+                <Col style={{ backgroundColor: color }} className="chevron-left" >
+                </Col><Col style={{ backgroundColor: color, fontFamily: 'monospace' }} className="chevron" value={+x} ><p>{numberModulus === null ? x : (+x % numberModulus)}
+                </p></Col><Col style={{ backgroundColor: color, width: '2rem' }} className="chevron-right" ></Col>
               </Container>
-              <Row id="index-view">{showIndex && idx}</Row>
+              <Row id="index-view" style={{ fontSize: ".5rem " }}>{showIndex && idx}</Row>
             </Container>
           )
         })}
       </Container>
-      <Col style={{margin: '2rem 0'}}>
+      <Col style={{ margin: '2rem 0' }}>
         <SetIndex length={sequence.sequence.length} onClick={onClick} />
       </Col>
     </Row >
