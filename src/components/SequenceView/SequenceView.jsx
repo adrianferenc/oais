@@ -3,9 +3,9 @@ import colorizer from '../../utilities/color'
 import grayizer from '../../utilities/gray'
 import './SequenceView.css';
 import { useEffect, useState, createRef } from 'react';
-import { Container } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
-export default function SequenceView({ showIndex, numberModulus, colorModulus, viewStart, setViewStart, sequence, width, inColor }) {
+export default function SequenceView({ showIndex, numberModulus, colorModulus, sequence, width, inColor }) {
   const [elRefs, setElRefs] = useState([]);
   useEffect(() => {
     setElRefs(elRefs => (
@@ -18,23 +18,25 @@ export default function SequenceView({ showIndex, numberModulus, colorModulus, v
   }
 
   return (
-    <Container className="sequence-view">
-      <Container className='d-flex justify-content-start' id='sequence' style={{ 'overflowX': 'auto' }}>
+    <Row className="sequence-view">
+      <Container className='d-flex justify-content-start' id='sequence' style={{ overflowX: 'auto' }}>
         {sequence.sequence.map((x, idx) => {
           let color = inColor ? colorizer(sequence.sequence, x, idx, colorModulus) : grayizer(sequence.sequence, x, idx, colorModulus);
           return (
-            <div ref={elRefs[idx]} className="integer" style={{ width: `${width}px` }} key={idx}>
-              <div style={{ backgroundColor: color }} className="chevron" value={+x} key={idx}>
-                <p className="number">{numberModulus === null ? x : (+x % numberModulus)}</p>
-              </div>
-              <div id="index-view">{showIndex && idx}</div>
-            </div>
+            <Container key={idx} style={{ padding: '0' }}>
+              <Container ref={elRefs[idx]} className="integer d-flex" style={{ display: 'inline-flex', padding: '0' }}>
+                <Col style={{ backgroundColor: color }} className="chevron-left" ></Col>
+                <Col style={{ backgroundColor: color, fontFamily: 'monospace' }} className="chevron" value={+x} ><p className="number">{numberModulus === null ? x : (+x % numberModulus)}</p></Col>
+                <Col style={{ backgroundColor: color, width: '2rem' }} className="chevron-right" ></Col>
+              </Container>
+              <Row id="index-view">{showIndex && idx}</Row>
+            </Container>
           )
         })}
       </Container>
-      <Container className="d-flex justify-content-center">
-        <SetIndex viewStart={viewStart} onClick={onClick} />
-      </Container>
-    </Container >
+      <Col style={{margin: '2rem 0'}}>
+        <SetIndex length={sequence.sequence.length} onClick={onClick} />
+      </Col>
+    </Row >
   );
 }

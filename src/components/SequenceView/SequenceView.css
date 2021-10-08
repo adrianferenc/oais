@@ -9,19 +9,30 @@
   justify-content: center;
   margin: 0 1vw;
   position: relative;
-  
 }
 
 .chevron {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 5vh;
-  clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+  padding: 0 1rem;
+  margin: 0;
+}
+
+.chevron-left {
+  clip-path: polygon(100% 0, 100% 100%, 0% 100%, 100% 50%, 0% 0%);
+  height: 5vh;
+  margin: 0rem;
+}
+
+.chevron-right {
+  clip-path: polygon(100% 50%, 0% 100%, 0% 0%);
+  height: 5vh;
+  margin: 0rem;
 }
 
 .movement-buttons {
-  margin-top:1rem;
+  margin-top: 1rem;
   display: flex;
   justify-content: center;
 }

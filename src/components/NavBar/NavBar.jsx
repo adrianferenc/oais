@@ -18,7 +18,7 @@ export default function NavBar({ user, setUser, sequence, setSequence, width, se
 
     return (
         <>
-            <Navbar bg="dark" variant="dark" expand="lg" >
+            <Navbar bg="dark" variant="dark" expand="lg" fixed="top" >
                 <Row className="justify-content-between">
 
                     <Col className="justify-content-start">
@@ -29,8 +29,8 @@ export default function NavBar({ user, setUser, sequence, setSequence, width, se
                     <Col>
                         <SearchForm sequence={sequence} setSequence={setSequence} width={width} />
                     </Col>
-                </Row >
-            </Navbar >
+                </Row>
+            </Navbar>
 
             <Modal show={dropdownOpen} onHide={handleClose} size="xl">
                 <Modal.Header closeButton>

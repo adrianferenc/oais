@@ -1,8 +1,3 @@
-
-//DO NOT TOUCH ANY OF THIS
-//TO SEE HOW RAINBOW WORKS, SEE SEQUENCE.JSX
-
-
 function rgbify(x, t, color1, color2, length) {
   return color1[x] * (1 - length * (t - Math.floor(t * length) / length)) + length * (t - Math.floor(t * length) / length) * color2[x];
 }
